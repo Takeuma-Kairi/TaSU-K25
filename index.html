@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Light-Dark</title>
+  <link rel="stylesheet" href="source/style.css">
+  <script src="story/story.js"></script>
+  <script src="source/script.js"></script>
+</head>
+
+<body id="body">
+
+
+<header>
+  <div id="button_page" onclick='change_article("page")'>
+    <img src="source/icon2_dark.png" id="icon_page" class="icon selected" alt="Page"/>
+  </div>
+  
+  <div id="button_page" onclick='change_article("item")'>
+    <img src="source/icon4_dark.png" id="icon_item" class="icon" alt="Item"/>
+  </div>
+  
+  <div id="button_setting" onclick='change_article("setting")'>
+    <img src="source/icon1_dark.png" id="icon_setting" class="icon" alt="Setting"/>
+  </div>
+</header>
+
+  <main>
+    <section id="page">
+      <h1>はじめに</h1>
+      
+      <p>
+        栃岡は、ほそぼそと小さな牧場を経営している牧人だ。
+        湾の中に浮かぶ、ロクボン島の東部に、昔から暮らしている。
+      </p>
+      
+      <p>
+        最近は近くにあるロクボン火山の活動が活発になり、火山灰や火山弾が降ってくることもしばしば。
+      </p>
+
+      </p>
+        常に季節外れのどんよりした雲も立ち込めていて。まるで天変地異の始まりのようだ。
+      </p>
+      <div class="selection_button" onclick ="mov(1)">
+        次へ
+        <img class="selection_icon" src="source/icon3_dark.png"/>
+      </div>
+      
+    </section>
+    
+  
+    <section id="item">
+      <h1>アイテム</h1>
+      <div id="item_div">
+        <p class='item_p'>特に何も持っていません</p>
+      </div>
+    </section>
+  
+    <section id="setting">
+      <h1>設定</h1>
+
+      <label>カラーテーマ：</label>
+      <select size="1" name="sample" onchange="change_color(this.value)">
+        <option value="default" selected>デバイスに合わせる</option>
+        <option value="light">ライト</option>
+        <option value="dark">ダーク</option>
+      </select>
+      
+      
+    </section>
+  
+  </main>
+</body>
+
+</html>
+
+
