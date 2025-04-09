@@ -24,6 +24,9 @@ body {
     "Hiragino Sans",
     Meiryo,
     sans-serif;
+    
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 /* ヘッダーは上に固定 */
@@ -32,22 +35,29 @@ header{
   top:0;
   left:0;
   width:100%;
-  height:2.5em;
+  height:3.5em;
   text-align: right;
   background-color: var(--main-bg);
-  padding-top: 0.1em;
   
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  
 }
   
+.buttons{
+  display: flex;
+  justify-content: flex-end;
+  flex: 2;
+
+  max-width: 800px;
+}
 
 /* アイコン画像 */
 .icon{
-  height: 1.2rem;
-  width:1.2rem;
-  margin: 0.3em;
-  padding: 0.3em;
+  height: 1.6rem;
+  width:1.6rem;
+  margin: 0.5em;
+  padding: 0.5em;
   border: var(--main-bg) solid 2px; /* かこみ線が見えないようなカラーリング */
   border-radius:5px;
 }
@@ -63,11 +73,31 @@ p{
 
 section{
   width:100%;
+  margin-top: 3rem;
 }
 
+.page_p{
+  animation: fadeIn 0.3s cubic-bezier(0.33,1,0.68,1) forwards;
+}
+
+@keyframes fadeIn{
+  0%{
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  100%{
+    opacity:1;
+    transform: translateY(0px);
+  }
+}
 
 .item_p{
   text-align: center;
+  margin:1rem;
+  margin-top:3rem;
+  /* font-weight: bold; */
+  font-size:120%;
 }
 
 section{
@@ -88,12 +118,27 @@ section{
   text-align: center;
   width: 15rem;
   padding: 0.8rem;
-  height: 1.1rem;
-  margin: 1rem;
+  height: 1.8rem;
+  margin: 1.2rem;
+  
+  /* animation: zoomIn 0.1s cubic-bezier(0.25,1,0.5,1) forwards; */
 }
 
+
+/*@keyframes zoomIn{
+  0%{
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  
+  100%{
+    transform: scale(1);
+    opacity:1;
+  }
+}*/
+
 .selection_icon{
-  height:1.5rem;
+  height:1.4rem;
   
   position: absolute;
   right:1rem;

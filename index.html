@@ -3,27 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Light-Dark</title>
+  <title>TaSU-K25 0.1</title>
   <link rel="stylesheet" href="source/style.css">
-  <script src="story/story.js"></script>
-  <script src="source/script.js"></script>
 </head>
 
-<body id="body">
+<body>
 
 
 <header>
-  <div id="button_page" onclick='change_article("page")'>
-    <img src="source/icon2_dark.png" id="icon_page" class="icon selected" alt="Page"/>
-  </div>
-  
-  <div id="button_page" onclick='change_article("item")'>
-    <img src="source/icon4_dark.png" id="icon_item" class="icon" alt="Item"/>
-  </div>
-  
-  <div id="button_setting" onclick='change_article("setting")'>
-    <img src="source/icon1_dark.png" id="icon_setting" class="icon" alt="Setting"/>
-  </div>
+  <div class="buttons">
+    <div id="button_page" onclick='change_article("page")'>
+      <img src="source/icon2_dark.png" id="icon_page" class="icon selected" alt="Page"/>
+    </div>
+    
+    <div id="button_page" onclick='change_article("item")'>
+      <img src="source/icon4_dark.png" id="icon_item" class="icon" alt="Item"/>
+    </div>
+    
+    <div id="button_setting" onclick='change_article("setting")'>
+      <img src="source/icon1_dark.png" id="icon_setting" class="icon" alt="Setting"/>
+    </div>
+  <div>
 </header>
 
   <main>
@@ -31,19 +31,22 @@
       <h1>はじめに</h1>
       
       <p>
-        栃岡は、ほそぼそと小さな牧場を経営している牧人だ。
-        湾の中に浮かぶ、ロクボン島の東部に、昔から暮らしている。
+        これは、選択式のテキストアドベンチャーゲームです。
       </p>
       
       <p>
-        最近は近くにあるロクボン火山の活動が活発になり、火山灰や火山弾が降ってくることもしばしば。
+        画面上部の右側には、３つのアイコンがあり、左から、「ストーリー」、「アイテム」、「設定」を指しています。
       </p>
 
       </p>
-        常に季節外れのどんよりした雲も立ち込めていて。まるで天変地異の始まりのようだ。
+        今はストーリーを見ています。ゲーム中でアイテムを入手した場合、「アイテム」内でその情報を見ることができます。
       </p>
-      <div class="selection_button" onclick ="mov(1)">
-        次へ
+      
+      </p>
+        下のボタンを押して、ゲームを開始してください。
+      </p>
+      <div class="selection_button" onclick ="mov(0)">
+        はじめる
         <img class="selection_icon" src="source/icon3_dark.png"/>
       </div>
       
@@ -59,20 +62,72 @@
   
     <section id="setting">
       <h1>設定</h1>
-
-      <label>カラーテーマ：</label>
-      <select size="1" name="sample" onchange="change_color(this.value)">
-        <option value="default" selected>デバイスに合わせる</option>
-        <option value="light">ライト</option>
-        <option value="dark">ダーク</option>
-      </select>
       
+      <p>
+        <h2>最初から始める</h2>
+        <label>最初から始める：
+          <button id="restart_button">OK</button>
+        </label>
+      </p>
+      
+      <p>
+        <h2>カラーテーマ</h2>
+        <label>カラーテーマ：
+          <select size="1" name="sample" onchange="change_color(this.value)">
+            <option value="default" selected>デバイスに合わせる</option>
+            <option value="light">ライト</option>
+            <option value="dark">ダーク</option>
+          </select>
+        </label>
+      </p>
+      
+      <p>
+      
+        <h2>セーブ</h2>
+        <h3>現在のセーブデータ</h3>
+          <p>
+            キー①：
+            <span id="now_save_keyword1">0</span>
+            ／ キー②：<span id="now_save_keyword2">0</span>
+            
+          </p>
+          <p>       現在のゲーム進行を保存したいとき、上の2種類のキーを覚えていてください。下のフォームに入力し、送信ボタンを押すと、データがロードされます。※キーワードは半角英数で書いてください。
+          </p>
+        </p>
+        
+        <p>
+          <h3>データのロード</h3>
+          <p>
+          <label>キー①：
+            <input type="text" required id="save_keyword1"></input>
+          </label>
+          </p>
+          
+          
+          <p>
+          <label>キー②：
+            <input type="text" required id="save_keyword2"></input>
+          </label>
+          </p>
+          
+          
+          <p>
+          <label>確定：
+            <input type="submit" id="save_submit"/>
+          </label>
+          </p>
+        </p>
+        
+        
+      </div>
       
     </section>
   
   </main>
 </body>
 
+  <script src="story/story.js"></script>
+  <script src="source/script.js"></script>
 </html>
 
 
