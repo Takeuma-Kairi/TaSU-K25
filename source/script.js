@@ -174,11 +174,11 @@ function show_page(){
   page_innerHTMLSTR = "";
   
     //タイトル
-  page_innerHTMLSTR+="<h1>"+ now_page[1] + "</h1>";
+  page_innerHTMLSTR+="<h1 class='page_passage_animation'>"+ now_page[1] + "</h1>";
   
     //描写文
   for(var i=2; i<now_page.length-1; i++){
-    page_innerHTMLSTR+="<p class='page_p'>"+ now_page[i] + "</p>";
+    page_innerHTMLSTR+="<p class='page_passage_animation'>"+ now_page[i] + "</p>";
   }
   
     //一番最後の要素が選択肢

@@ -76,7 +76,7 @@ section{
   margin-top: 3rem;
 }
 
-.page_p{
+.page_passage_animation{
   animation: fadeIn 0.3s cubic-bezier(0.33,1,0.68,1) forwards;
 }
 
@@ -142,4 +142,12 @@ section{
   
   position: absolute;
   right:1rem;
+}
+
+h1{
+  font-size: 2em;
+}
+
+h2{
+  font-size: 1.5em;
 }
