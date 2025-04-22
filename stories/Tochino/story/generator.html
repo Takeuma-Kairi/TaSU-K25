@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaSU-K25 generator</title>
+  <script src="story.js"></script>
+</head>
+
+
+<body>
+  <button onclick="code_story()">ここを押してストーリーを転記</button>
+  <button onclick="code_item()">ここを押してアイテムを転記</button>
+  <button onclick="code_selection()">ここを押してアイテムを転記</button>
+  <button onclick="code_tags()">ここを押してタグを転記</button>
+  
+  <div id="code_field"></div>
+</body>
+
+<script>
+// tob用のタグ。連想配列。タグ名:ページ番号
+let tagArr = {};
+
+//出来上がった内容を記す場所
+let page= document.getElementById("code_field");
+  
+function code_story(){
+  // 初期化
+  page.innerHTML="";
+  
+  
+  // 内容を書き連ねていく
+  let page_innerHTMLSTR = "const STORY_LENGTH=" + Story["map"].length + ";\n\n";
+  
+    //タイトル
+    
+  for(var j=0; j<Story["map"].length; j++){
+  now_page = Story["map"][j];
+  
+    page_innerHTMLSTR+="<div id='page_" + j + "' class='hidden_page" + (j==0 ? " open_page" : "") + "'>\n"
+    page_innerHTMLSTR+="<h1 class='page_passage_animation'>"+ now_page[1] + "</h1>\n";
+    
+      //描写文
+    for(var i=2; i<now_page.length-1; i++){
+      if(now_page[i] == "makespace"){
+        page_innerHTMLSTR+="\t<div class='makespace'></div>\n";
+      }else{
+        page_innerHTMLSTR+="\t<p class='page_passage_animation'>"+ now_page[i] + "</p>\n";
+      }
+    }    
+      // document.getElementById("icon_page").click();
+
+  
+  
+    //一番最後の要素が選択肢
+  selectionArr = now_page.at(-1);
+  
+    //選択肢
+  page_innerHTMLSTR+='\t<div class="buttons_centering">\n\t\t';
+  for(var i=0; i<selectionArr.length; i++){
+    page_innerHTMLSTR+='<button class="selection_button" id="';
+    page_innerHTMLSTR+='btn_' + j + '_' + i;
+    page_innerHTMLSTR+='">';
+    page_innerHTMLSTR+=selectionArr[i][0];
+    page_innerHTMLSTR+='\n\t\t<img class="selection_icon" src="source/icon3_dark'
+    <!-- page_innerHTMLSTR+= color_theme; -->
+    page_innerHTMLSTR+='.png" /></button>\n';
+    
+  }
+    page_innerHTMLSTR+='\t</div>\n</div>\n\n';
+  }
+  page.innerText=page_innerHTMLSTR;
+}
+
+//===============================================================
+function code_item(){
+  let itemArr = Story["item"];
+  // 初期化
+  page.innerHTML="";
+  
+  let item_innerHTMLSTR = "<p id='noitem' class='item_p open_item'>特に何も持っていません</p>\n\n";
+  let item_have = "let item_haveArr=[";
+  
+  for(var i=0; i < itemArr.length; i++){
+    item_innerHTMLSTR += "<p id='item_" + i + "' class='item_p hidden_item'> ----[  " + itemArr[i][0] + "  ]----<br>\n" 
+        + itemArr[i][1] + "\n</p>\n\n";
+    item_have += "false,";
+  }
+  item_have += "];";
+  
+  page.innerText=item_innerHTMLSTR + item_have; 
+}
+
+
+
+
+//=======================================
+function code_selection(){
+  // 初期化
+  page.innerHTML="";
+  
+  // 内容を書き連ねていく
+  let event_script = "";
+
+
+  event_script = "const EVENT_SCRIPT=[\n";
+  
+  for(var i=0; i<Story["map"].length; i++){
+    var selectionArr = Story["map"][i].at(-1);
+    
+    event_script += '[';
+    for(var j=0; j<selectionArr.length; j++){
+      event_script += "function(){" + selectionArr[j][1] + "}, ";
+    }
+    event_script += '],\n';
+    
+  }
+  event_script += '];\n\n';
+  
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  
+  page.innerText = event_script;
+}
+
+//=======================================
+
+function code_tags(){
+  page.innerHTML = "";
+  
+  let tagDicSTR = "const TAGARR={";
+  
+  for(var i=0; i<Story["map"].length; i++){
+    var tagStr = Story["map"][i][0];
+    
+    if(tagStr != ""){
+      tagDicSTR += '"' + tagStr + '": ' + i + ', \n';
+    }
+  }
+
+  tagDicSTR += '};';
+
+  page.innerText = tagDicSTR;
+}
+</script>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaSU-K25 0.2</title>
+  <link rel="stylesheet" href="source/style.css">
+</head>
+
+<body ontouchstart="">
+
+
+<header>
+  <div class="buttons">
+    <button id="button_page" class="tab_button selected" onclick='change_article("page")'>
+      <img src="source/icon2_dark.png" id="icon_page" class="icon" alt="Page" />
+    </button>
+    
+    <button id="button_item" class="tab_button" onclick='change_article("item")'>
+      <img src="source/icon4_dark.png" id="icon_item" class="icon" alt="Item" />
+    </button>
+    
+    <button id="button_setting" class="tab_button" onclick='change_article("setting")'>
+      <img src="source/icon1_dark.png" id="icon_setting" class="icon" alt="Setting" />
+    </button>
+  </div>
+</header>
+
+  <main>
+    <section id="page">
+      <h1>説明</h1>
+      
+      <p>
+        これは、選択式のテキストアドベンチャーゲームです。
+      </p>
+      
+      <p>
+        画面上部の右側には、３つのアイコンがあり、左から、<br>「ストーリー」、「アイテム」、「設定」を指しています。
+      </p>
+
+      <p>
+        今は「ストーリー」を見ています。
+      </p>
+      
+      <p>
+        ゲーム中でアイテムを入手した場合、「アイテム」内で情報を見ることができます。
+      </p>
+      <p>
+        下の「はじめる」を押して、ゲームを開始してください。
+      </p>
+      
+      <div class="buttons_centering">
+        <button class="selection_button" onclick ="mov(0)">
+          はじめる
+          <img class="selection_icon" src="source/icon3_dark.png"/>
+        </button>
+      </div>
+      
+    </section>
+    
+  
+    <section id="item">
+      <h1>アイテム</h1>
+      <div id="item_div">
+        <p class='item_p'>特に何も持っていません</p>
+      </div>
+    </section>
+  
+    <section id="setting">
+      <h1>設定</h1>
+      
+      <p>
+        <h2>最初から始める</h2>
+        <label>最初から始める：
+          <button id="restart_button">OK</button>
+        </label>
+      </p>
+      
+      <p>
+        <h2>カラーテーマ</h2>
+        <label>カラーテーマ：
+          <select size="1" name="sample" onchange="change_color(this.value)">
+            <option value="default" selected>デバイスに合わせる</option>
+            <option value="light">ライト</option>
+            <option value="dark">ダーク</option>
+          </select>
+        </label>
+      </p>
+      
+      <p>
+      
+        <h2>セーブ</h2>
+        <h3>現在のセーブデータ</h3>
+          <p>
+            キー①：
+            <span id="now_save_keyword1">0</span>
+            ／ キー②：<span id="now_save_keyword2">0</span>
+            
+          </p>
+          <p>       現在のゲーム進行を保存したいとき、上の2種類のキーを覚えていてください。下のフォームに入力し、送信ボタンを押すと、データがロードされます。※キーワードは半角英数で書いてください。
+          </p>
+        </p>
+        
+        <p>
+          <h3>データのロード</h3>
+          <p>
+          <label>キー①：
+            <input type="text" required id="save_keyword1"></input>
+          </label>
+          </p>
+          
+          
+          <p>
+          <label>キー②：
+            <input type="text" required id="save_keyword2"></input>
+          </label>
+          </p>
+          
+          
+          <p>
+          <label>確定：
+            <input type="submit" id="save_submit"/>
+          </label>
+          </p>
+        </p>
+        
+        <hr>
+        <p class="italic_p">竹馬浬 2025.4; Story-Number=25_4.39.Cx.M1.栃野</p>
+      
+    </section>
+  
+  </main>
+</body>
+
+  <script src="story/story.js"></script>
+  <script src="source/script.js"></script>
+</html>
+
+

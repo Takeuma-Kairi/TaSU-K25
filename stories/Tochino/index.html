@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaSU-K25 1.0</title>
+  <link rel="stylesheet" href="source/style.css">
+  
+  
+  <!-- ファビコン -->
+  <link rel="icon" href="source/favicon.ico">
+  <link rel="apple-touch-icon" href="source/apple-touch-icon-180x180.png" sizes="180x180">
+  <link rel="icon" href="source/favicon.png">
+</head>
+
+<body id="body">
+
+
+<header>
+  <div class="buttons">
+    <button id="button_page" class="tab_button selected" onclick='change_article("page")'>
+      <img src="source/icon2_dark.png" id="icon_page" class="icon" alt="Page" />
+    </button>
+    
+    <button id="button_item" class="tab_button" onclick='change_article("item")'>
+      <img src="source/icon4_dark.png" id="icon_item" class="icon" alt="Item" />
+    </button>
+    
+    <button id="button_setting" class="tab_button" onclick='change_article("setting")'>
+      <img src="source/icon1_dark.png" id="icon_setting" class="icon" alt="Setting" />
+    </button>
+  </div>
+</header>
+
+  <main>
+    <section id="page">
+
+<div id='page_0' class='open_page'>
+<h1 class='page_passage_animation'>～災いの日～</h1>
+<p class='page_passage_animation'>夏期</p>
+<p class='page_passage_animation'>チャオ県 <ruby>太寧<rp>(</rp><rt>たいねい</rt><rp>)</rp></ruby>湾内 ロクボン島にて…</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_0_0">次へ
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_1' class='hidden_page'>
+<h1 class='page_passage_animation'>はじめに</h1>
+<p class='page_passage_animation'><ruby>栃野<rp>(</rp><rt>とちの</rt><rp>)</rp> 圭<rp>(</rp><rt>けい</rt><rp>)</rp></ruby>は、小さな牧場をほそぼそと経営している牧人だ。</p>
+<p class='page_passage_animation'>最近は、近くにあるロクボン火山の活動が活発になり、火山灰や火山弾が降ってくることもしばしば。</p>
+<p class='page_passage_animation'>常に季節外れのどんよりした雲も立ち込めていて、まるで天変地異の始まりのようだ。</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_1_0">次へ
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_2' class='hidden_page'>
+<h1 class='page_passage_animation'>はじめに</h1>
+<p class='page_passage_animation'>ある日、役場が災害救済制度についてセミナーを開くという情報を聞きつけた。</p>
+<p class='page_passage_animation'>ぜひ参加したいと準備をすすめ、当日、あとは行くばかりだが、一つ懸念がある。</p>
+<p class='page_passage_animation'>ロクボン島は、ひょうたんのような形状で東西に分かれており、中央のくびれの部分に火山がある。</p>
+<p class='page_passage_animation'>栃野がいるのは、東側の草原地帯。</p>
+<p class='page_passage_animation'>役場は、西側の町にある。</p>
+<p class='page_passage_animation'>なので、行き来には危険な火山のふもとを通り過ぎなければいけない。 トラブルなく無事にたどりつければいいが…。</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_2_0">進む
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_3' class='hidden_page'>
+<h1 class='page_passage_animation'>自宅</h1>
+<p class='page_passage_animation'>ここは栃野の家。</p>
+<p class='page_passage_animation'>古い木造の家で、窓からは外の草原や、海に浮かぶ島々が見える。</p>
+<p class='page_passage_animation'>テーブルの上にはいろいろなものが置かれている。</p>
+<p class='page_passage_animation'>隣の部屋には、足腰の弱った親がいる。</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_3_0">家から出発する
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+<button class="selection_button" id="btn_3_1">テーブルの上を見る
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+<button class="selection_button" id="btn_3_2">隣の部屋へ
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_4' class='hidden_page'>
+<h1 class='page_passage_animation'>テーブル</h1>
+<p class='page_passage_animation'>テーブルの上には、[ 牛舎の鍵 ]が置いてある。あとで見回りに行くのもいいかもしれない。</p>
+<p class='page_passage_animation'>他にも、生乳の冷却タンクの説明書や、乳業メーカーとの契約書などが置かれている。</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_4_0">鍵をとる
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+<button class="selection_button" id="btn_4_1">戻る
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_5' class='hidden_page'>
+<h1 class='page_passage_animation'>テーブル</h1>
+<p class='page_passage_animation'>鍵をとった。</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_5_0">戻る
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_6' class='hidden_page'>
+<h1 class='page_passage_animation'>テーブル</h1>
+<p class='page_passage_animation'>テーブルの上には生乳の冷却タンクの説明書や、乳業メーカーとの契約書などが置かれている。</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_6_0">戻る
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_7' class='hidden_page'>
+<h1 class='page_passage_animation'>隣の部屋</h1>
+<p class='page_passage_animation'>老齢の親が、椅子に座ってお茶を飲みながら、ゆっくり外の景色を見ている。</p>
+<p class='page_passage_animation'>壁には、いろいろな記念品が飾られている。</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_7_0">戻る
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+<button class="selection_button" id="btn_7_1">話しかける
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+<button class="selection_button" id="btn_7_2">壁を見る
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_8' class='hidden_page'>
+<h1 class='page_passage_animation'>隣の部屋</h1>
+<p class='page_passage_animation'>「そろそろ役場に行ってくるよ」</p>
+<p class='page_passage_animation'>「おう気をつけてな。魔物にも注意するんだよ。」</p>
+<p class='page_passage_animation'>「魔物ねえ。人の通り道には現れないでしょう。」</p>
+<p class='page_passage_animation'>「何が起こるかわからんよ。簡単でいいから、身を守るのと、攻撃するためのものをもっていくんだよ。</p>
+<p class='page_passage_animation'>「そう、用心して行くよ。」</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_8_0">戻る
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_9' class='hidden_page'>
+<h1 class='page_passage_animation'>隣の部屋</h1>
+<p class='page_passage_animation'>壁には、家族や風景の写真が並んでかけられている。</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_9_0">戻る
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_10' class='hidden_page'>
+<h1 class='page_passage_animation'>隣の部屋</h1>
+<p class='page_passage_animation'>壁には、家族や風景の写真が並んでかけられているが、その中に、古い[ <ruby>円盾<rp>(</rp><rt>まるたて</rt><rp>)</rp></ruby> ]が飾られている。</p>
+<p class='page_passage_animation'>一対の鹿の角のデザインが大きく彫られている金属製の盾で、無数の傷がついている。</p>
+<p class='page_passage_animation'>かつてここを治めていた、フィナ王の時代、栃野のご先祖が戦いのときに使っていたものだ。</p>
+<p class='page_passage_animation'>おおげさではあるが、火山弾とかから身を守るのにも使えるかもしれない。</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_10_0">盾を持っていく
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+<button class="selection_button" id="btn_10_1">戻る
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_11' class='hidden_page'>
+<h1 class='page_passage_animation'>隣の部屋</h1>
+<p class='page_passage_animation'>円盾をとった。</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_11_0">次へ
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_12' class='hidden_page'>
+<h1 class='page_passage_animation'>十字路</h1>
+<p class='page_passage_animation'>ところどころ岩肌が見える草原の真ん中に、道が通っている。</p>
+<p class='page_passage_animation'>目的地である西の町へ向かう道、栃野の牧場につながる道、アザラシ猟師の小屋、栃野の自宅へ、それぞれ向かう道がある。</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_12_0">西へ
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+<button class="selection_button" id="btn_12_1">牧場へ
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+<button class="selection_button" id="btn_12_2">猟師の小屋へ
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+<button class="selection_button" id="btn_12_3">自宅へ戻る
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_13' class='hidden_page'>
+<h1 class='page_passage_animation'>猟師小屋</h1>
+<p class='page_passage_animation'>アザラシ猟はこのあたりで伝統的に行われている。</p>
+<p class='page_passage_animation'>知り合いの漁師が、小屋の前で何か長い棒のようなものを洗っている。</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_13_0">話しかける
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+<button class="selection_button" id="btn_13_1">戻る
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_14' class='hidden_page'>
+<h1 class='page_passage_animation'>猟師小屋</h1>
+<p class='page_passage_animation'>「やあ、猟の調子はどう？」</p>
+<p class='page_passage_animation'>「おう栃野か。さいきんはめっきりさ。さっき岩場にぶつけて舟に穴もあけてしまったし、さんざんだ。」</p>
+<p class='page_passage_animation'>「それは残念…。ところでその棒は何？」</p>
+<p class='page_passage_animation'>「仕事道具だよ。これでアザラシの頭を割るんだ。あ、言っとくけど触るなよ、大事な商売道具だから。」</p>
+<p class='page_passage_animation'>「触らないよ。まあ、お互い頑張ろう。」</p>
+<p class='page_passage_animation'>「そうだな。」</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_14_0">戻る
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_15' class='hidden_page'>
+<h1 class='page_passage_animation'>栃野の牧場</h1>
+<p class='page_passage_animation'>策で囲まれた広い牧草地と、牛舎がある。</p>
+<p class='page_passage_animation'>栃野の牧場だ。</p>
+<p class='page_passage_animation'>いつもは乳牛を放牧させているが、危ないので今はみな牛舎の中だ。</p>
+<p class='page_passage_animation'>たまに、こぶし大の火山弾が降ってくることもある。</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_15_0">牛舎へ
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+<button class="selection_button" id="btn_15_1">戻る
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_16' class='hidden_page'>
+<h1 class='page_passage_animation'>牛舎</h1>
+<p class='page_passage_animation'>牛舎には鍵がかかっている。</p>
+<p class='page_passage_animation'>自宅に鍵を忘れてきた…。</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_16_0">戻る
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_17' class='hidden_page'>
+<h1 class='page_passage_animation'>牛舎</h1>
+<p class='page_passage_animation'>牛舎の中には、十数匹の牛が繋がれている。</p>
+<p class='page_passage_animation'>口をずっと動かしながら、のんきな目をしてこっちを見たり、あっちを見たりしている。</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_17_0">戻る
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_18' class='hidden_page'>
+<h1 class='page_passage_animation'>牛舎</h1>
+<p class='page_passage_animation'>牛舎の中には、十数匹の牛が繋がれている。</p>
+<p class='page_passage_animation'>口をずっと動かしながら、のんきな目をしてこっちを見たり、あっちを見たりしている。</p>
+<p class='page_passage_animation'>そばの壁に、[ ピッチフォーク ]が立てかけてある。長い柄と、その先端に広がった4本歯を持った農具だ。</p>
+<p class='page_passage_animation'>普段は牧草を運ぶのに使っている。</p>
+<p class='page_passage_animation'>杖がわりにでも持って行こうか。</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_18_0">持っていく
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+<button class="selection_button" id="btn_18_1">戻る
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_19' class='hidden_page'>
+<h1 class='page_passage_animation'>牛舎</h1>
+<p class='page_passage_animation'>ピッチフォークをとった。</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_19_0">戻る
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_20' class='hidden_page'>
+<h1 class='page_passage_animation'>西へ進む道</h1>
+<p class='page_passage_animation'>道の先へ進むにつれ、足元に岩が目立つようになってきた。</p>
+<p class='page_passage_animation'>火山の麓を通る道である。</p>
+<p class='page_passage_animation'>舗装されて歩きやすいが、ところどころへこんだりひび割れたりして、荒れている。</p>
+<p class='page_passage_animation'>しばらく歩いていると、道の両側は溶岩でできた崖になり、見通しが悪くなってきた。</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_20_0">次へ
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_21' class='hidden_page'>
+<h1 class='page_passage_animation'>魔物</h1>
+<p class='page_passage_animation'>突然、目の前に、その崖の上から、小石がばらばらと落ちてきた。</p>
+<p class='page_passage_animation'>衝撃音を伴い、前方に土煙が立ち込める。</p>
+<p class='page_passage_animation'>栃野は危険を感じ、歩みを止めて後ずさったが、その背後にも、岩が落ちてくる音がした。</p>
+<p class='page_passage_animation'>閉じ込められてしまったかもしれない。</p>
+<p class='page_passage_animation'>そう思った矢先、目の前に、崖から巨大な影が転げ落ちて、もう片側の崖に激突した。</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_21_0">次へ
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_22' class='hidden_page'>
+<h1 class='page_passage_animation'>魔物</h1>
+<p class='page_passage_animation'>それは、一見、巨大な岩の塊に見えたが、よく見ると動いている。</p>
+<p class='page_passage_animation'>巨大なトカゲらしきものだ。栃野の身の丈の二倍はゆうに超える大きさだ。</p>
+<p class='page_passage_animation'>背中から頭頂にかけて、ゴツゴツした鱗に覆われている。</p>
+<p class='page_passage_animation'>しばらく、ここはどこだろうと顔をきょろきょろしていたが、</p>
+<p class='page_passage_animation'>やがて栃野と目が合った。</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_22_0">次へ
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_23' class='hidden_page'>
+<h1 class='page_passage_animation'>戦い</h1>
+<p class='page_passage_animation'>巨大トカゲは、数秒の間、栃野から間合いをとって様子を伺っていたが、何を思ったか、栃野に向かってとびかかってきた！</p>
+<p class='page_passage_animation'>身を守れる道具も何もない。足場は悪いが、逃げるしかない!</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_23_0">逃げる
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_24' class='hidden_page'>
+<h1 class='page_passage_animation'>不運…</h1>
+<p class='page_passage_animation'>栃野はトカゲに背を向けて逃げようとしたが、岩につまづいて倒れてしまった。</p>
+<p class='page_passage_animation'>気が立っているトカゲは、栃野をその巨体で踏みつけながら、容赦なく鋭いキバで噛みついた。</p>
+<p class='page_passage_animation'>あまりの痛みに栃野は気を失い、そのまま目覚めることはなかった…。</p>
+<div class='makespace'></div>
+<p class='page_passage_animation'>[ Bad End (1/4) ]</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_24_0">最初に戻る
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_25' class='hidden_page'>
+<h1 class='page_passage_animation'>戦い</h1>
+<p class='page_passage_animation'>巨大トカゲは、数秒の間、栃野から間合いをとって様子を伺っていたが、何を思ったか、栃野に向かってとびかかってきた！</p>
+<p class='page_passage_animation'>足場は悪く、逃げるのは難しい。</p>
+<p class='page_passage_animation'>栃野は、身を低くして盾を構えた。</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_25_0">盾で守る
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_26' class='hidden_page'>
+<h1 class='page_passage_animation'>戦い</h1>
+<p class='page_passage_animation'>巨大トカゲの頭が円盾にぶつかる。</p>
+<p class='page_passage_animation'>栃野は強い衝撃を受け、円盾もおおきく凹んでしまったが、トカゲも不意に攻撃を防がれて、面食らったようだ。</p>
+<p class='page_passage_animation'>上体を起こし、後ろ足で立って体をのけぞらせた。</p>
+<p class='page_passage_animation'>栃野は、そのトカゲの胸元が、赤く脈打つように輝いているのをみつけた。</p>
+<p class='page_passage_animation'>あそこだけ皮膚も薄くなっている。</p>
+<p class='page_passage_animation'>弱点に違いない。</p>
+<p class='page_passage_animation'>しかし攻撃手段を持っていない。一体全体どうしたものだろう。</p>
+<p class='page_passage_animation'>そう躊躇している間に、トカゲは再び栃野に標的を定めた。</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_26_0">もう一度盾で守る
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_27' class='hidden_page'>
+<h1 class='page_passage_animation'>不運…</h1>
+<p class='page_passage_animation'>目と目があったその一瞬の後、栃野はその巨体で、上から踏みつけられた。</p>
+<p class='page_passage_animation'>盾がつぶれ、自身の骨が折れる音がした。</p>
+<p class='page_passage_animation'>あまりの痛みに栃野は気を失い、そのまま目覚めることはなかった…。</p>
+<div class='makespace'></div>
+<p class='page_passage_animation'>[ Bad End (2/4) ]</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_27_0">最初に戻る
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_28' class='hidden_page'>
+<h1 class='page_passage_animation'>戦い</h1>
+<p class='page_passage_animation'>巨大トカゲは、数秒の間、栃野から間合いをとって様子を伺っていたが、何を思ったか、栃野に向かってとびかかってきた！</p>
+<p class='page_passage_animation'>足場は悪く、逃げるのは難しい。</p>
+<p class='page_passage_animation'>栃野は、意を決してピッチフォークを握りしめた。</p>
+<p class='page_passage_animation'>ピッチフォークの歯は細くとがっているが、このトカゲの分厚い鱗を貫けるほど鋭くはないだろう。</p>
+<p class='page_passage_animation'>すると、この柄の長さを生かして…。</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_28_0">叩きつける
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_29' class='hidden_page'>
+<h1 class='page_passage_animation'>戦い</h1>
+<p class='page_passage_animation'>ピッチフォークを大きく振りかざし、突進してくる巨大トカゲの頭に叩きつけた。</p>
+<p class='page_passage_animation'>一瞬、意表を突かれた攻撃にトカゲの動きが止まったが、こんな攻撃は脅威ではないというように、再び、今度は至近距離から、突進をはじめた。</p>
+<p class='page_passage_animation'>まずい、身を守る道具を何も持っていない。</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_29_0">ピッチフォークを構える
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_30' class='hidden_page'>
+<h1 class='page_passage_animation'>不運…</h1>
+<p class='page_passage_animation'>栃野がピッチフォークを構えなおす前に、巨大トカゲが頭突きをかました。</p>
+<p class='page_passage_animation'>体勢を崩し、ピッチフォークも手から離れ、無防備になった栃野に、トカゲは容赦なく噛みついた。</p>
+<p class='page_passage_animation'>あまりの痛みに栃野は気を失い、そのまま目覚めることはなかった…。</p>
+<div class='makespace'></div>
+<p class='page_passage_animation'>[ Bad End (3/4) ]</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_30_0">最初に戻る
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_31' class='hidden_page'>
+<h1 class='page_passage_animation'>戦い</h1>
+<p class='page_passage_animation'>巨大トカゲは、数秒の間、栃野から間合いをとって様子を伺っていたが、何を思ったか、栃野に向かってとびかかってきた！</p>
+<p class='page_passage_animation'>足場は悪く、逃げるのは難しい。</p>
+<p class='page_passage_animation'>幸いにも、身を守る円盾と、攻撃できるピッチフォークをもっている。</p>
+<p class='page_passage_animation'>ただ、ピッチフォークの歯は細くとがっているが、このトカゲの分厚い鱗を貫けるほど鋭くはないだろう。</p>
+<p class='page_passage_animation'>まずは身を守り、様子をうかがうとしよう。</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_31_0">盾で守る
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_32' class='hidden_page'>
+<h1 class='page_passage_animation'>戦い</h1>
+<p class='page_passage_animation'>巨大トカゲの頭が円盾にぶつかる。</p>
+<p class='page_passage_animation'>栃野は強い衝撃を受け、円盾もおおきく凹んでしまったが、トカゲも不意に攻撃を防がれて、面食らったようだ。</p>
+<p class='page_passage_animation'>上体を起こし、後ろ足で立って体をのけぞらせた。</p>
+<p class='page_passage_animation'>栃野は、そのトカゲの胸元が、赤く脈打つように輝いているのをみつけた。</p>
+<p class='page_passage_animation'>あそこだけ皮膚が薄い。トカゲの弱点だと直感した。</p>
+<p class='page_passage_animation'>ピッチフォークのリーチの長さは十分だ。</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_32_0">ピッチフォークで突く
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_33' class='hidden_page'>
+<h1 class='page_passage_animation'>戦い</h1>
+<p class='page_passage_animation'>いちかばちか、栃野はピッチフォークを構え、大きく前に踏み込んで、トカゲの胸に突き刺した。</p>
+<p class='page_passage_animation'>トカゲは上を向いて叫び声をあげ、足元をふらつかせ、胸の輝きも、急に強くなったり弱くなったりと、不規則に点滅し始めた。</p>
+<p class='page_passage_animation'>栃野はピッチフォークを引き抜いて、後ろに数歩下がった。</p>
+<p class='page_passage_animation'>、トカゲは、胸から赤黒い液体を吹き出しながらバッタリと前に倒れ伏した。</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_33_0">次へ
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_34' class='hidden_page'>
+<h1 class='page_passage_animation'>トカゲの撃退</h1>
+<p class='page_passage_animation'>トカゲは突っ伏したまま、呼吸も乱れ、視線だけを栃野に向けている。</p>
+<p class='page_passage_animation'> </p>
+<p class='page_passage_animation'>先ほどまで命を奪われかけていた身であるが、栃野は、その瞳が、不思議な悲しさを帯びているように感じた。</p>
+<p class='page_passage_animation'>十分な距離を取りながらその瞳を見つめ返していると、</p>
+<p class='page_passage_animation'>道の反対側から物音がした。</p>
+<p class='page_passage_animation'>人の足音だ。</p>
+<p class='page_passage_animation'>土煙の中から姿をあらわしたのは、十名ほどの兵士たちだった。</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_34_0">次へ
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_35' class='hidden_page'>
+<h1 class='page_passage_animation'>トカゲの撃退</h1>
+<p class='page_passage_animation'>全員、金属製のヘルメットや防護盾を装備しており、小火器やスコップなどを持っている人もいる。</p>
+<p class='page_passage_animation'>リーダー格と思しき、先頭を歩いてきた人は栃野に気づき、次に、足元の巨大トカゲに気づいた。</p>
+<p class='page_passage_animation'>栃野を手で制止し、</p>
+<p class='page_passage_animation'>「ちょっと、そこの人、止まってて。」</p>
+<p class='page_passage_animation'>と言い、</p>
+<p class='page_passage_animation'>次に、後ろの仲間に振り返って、トカゲを指差して、</p>
+<p class='page_passage_animation'>「ターゲットだ。ぐったりしている。生け捕りにしよう。」</p>
+<p class='page_passage_animation'>と指示を出した。</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_35_0">次へ
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_36' class='hidden_page'>
+<h1 class='page_passage_animation'>トカゲの撃退</h1>
+<p class='page_passage_animation'>後ろの仲間たちがトカゲを囲んで捕獲作業をしている間、先頭の人は防護盾を足元におろして、栃野に近づいて挨拶をしてきた。</p>
+<p class='page_passage_animation'>「こんにちは、私は<ruby>太寧<rp>(</rp><rt>たいねい</rt><rp>)</rp></ruby>湾内災害対策局の<ruby>出水<rp>(</rp><rt>いみず</rt><rp>)</rp></ruby>と申します。怪我はないですか？」</p>
+<p class='page_passage_animation'>「怪我は…特にないですが、大変な目にはあいました。」</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_36_0">次へ
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_37' class='hidden_page'>
+<h1 class='page_passage_animation'>トカゲの撃退</h1>
+<p class='page_passage_animation'>出水は、へこんだ円盾や、ピッチフォークの先端を見て、状況を察した。</p>
+<p class='page_passage_animation'>「…そのようですね。いくつか、質問させてもらっても？」</p>
+<p class='page_passage_animation'>栃野はトカゲとの遭遇から、今に至る流れを話した。</p>
+<p class='page_passage_animation'>「…なるほど。しかしずいぶんと勇敢な方だ。私も見習わないとな。」</p>
+<p class='page_passage_animation'>「いやいや、運が良かっただけですよ。」</p>
+<p class='page_passage_animation'>出水と栃野は笑い合った。</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_37_0">次へ
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_38' class='hidden_page'>
+<h1 class='page_passage_animation'>トカゲの撃退</h1>
+<p class='page_passage_animation'>「あっ、そういえば、話を聞くあたり、西の町に行こうとしていたのではなかったですか？」</p>
+<p class='page_passage_animation'>「そうでした、すっかり忘れていた。火山で牧場が被害を受けてしまって。それで、役場の救済制度のセミナーに参加しようと思っていたのですが。」</p>
+<p class='page_passage_animation'>栃野がそう言うと、出水は首をかしげた。</p>
+<p class='page_passage_animation'>「役場のセミナー？ここ数日は、役場は開いていないですが…。」</p>
+<p class='page_passage_animation'>栃野は驚いた。今日のこの騒動は、無駄な苦労だったのか。</p>
+<p class='page_passage_animation'>「そうなんですか？」</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_38_0">次へ
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_39' class='hidden_page'>
+<h1 class='page_passage_animation'>トカゲの撃退</h1>
+<p class='page_passage_animation'>「ええ、ああいうのが出てきたので、戒厳令が敷かれていて、役場は普段の業務をやってないんですよ。」</p>
+<p class='page_passage_animation'>出水はトカゲの方に振り返った。</p>
+<p class='page_passage_animation'>もうすでに、その巨体は大きい袋や厚いシートに覆われ、ところどころ太い縄で縛られている所だった。</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_39_0">次へ
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_40' class='hidden_page'>
+<h1 class='page_passage_animation'>トカゲの撃退</h1>
+<p class='page_passage_animation'>出水は栃野に向き直った。</p>
+<p class='page_passage_animation'>「でもご安心を。戒厳令はじきに解除されるでしょうし、牧場の被害も、きっとこれ以上大きくはならないはずですよ。」</p>
+<p class='page_passage_animation'>「どういうことですか？」</p>
+<p class='page_passage_animation'>「実は今回の火山活動は、あいつが地中で暴れたことが原因なんです。地上に出てきたところを捕獲できたので、今後は、火山もすっかり落ち着くと思いますよ。」</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_40_0">次へ
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+<div id='page_41' class='hidden_page'>
+<h1 class='page_passage_animation'>おわり</h1>
+<p class='page_passage_animation'>…</p>
+<p class='page_passage_animation'>……</p>
+<p class='page_passage_animation'>その後、栃野は、出水らに別れを告げ、東に戻った。</p>
+<p class='page_passage_animation'>実際、その日から火山は何事もなかったかのように静まり返った。</p>
+<p class='page_passage_animation'>後日、役場からいくばくかの補助金も受け取り、牧場も修繕することができた。</p>
+<p class='page_passage_animation'> </p>
+<p class='page_passage_animation'>あのトカゲがその後どうなったのかは、結局よくわからなかったが、栃野のもとには平穏な日常が戻ってきた。</p>
+<div class='makespace'></div>
+<p class='page_passage_animation'>[ Good End (4/4)]</p>
+<div class="buttons_centering">
+<button class="selection_button" id="btn_41_0">最初に戻る
+<img class="selection_icon" src="source/icon3_dark.png" /></button>
+</div>
+</div>
+
+      
+    </section>
+    
+  
+    <section id="item">
+      <h1>アイテム</h1>
+      <div id="item_div" class="item_div">
+        <p id='noitem' class='item_p open_item'>特に何も持っていません</p>
+
+        <p id='item_0' class='item_p hidden_item'> ----[ 鍵 ]----<br>
+        牛舎の鍵。
+        </p>
+
+        <p id='item_1' class='item_p hidden_item'> ----[ 円盾 ]----<br>
+        先祖が使っていたという、鹿の角がデザインされた古い盾。
+        </p>
+
+        <p id='item_2' class='item_p hidden_item'> ----[ ピッチフォーク ]----<br>
+        長い柄と、その先端に広がった4本歯を持った農具
+        </p>
+
+      </div>
+    </section>
+  
+    <section id="setting">
+      <h1>設定</h1>
+      
+      <p>
+        <h2>最初から始める</h2>
+        <label>リセット：
+          <button id="restart_button">OK</button>
+        </label>
+      </p>
+      
+      <p>
+        <h2>カラーテーマ</h2>
+        <label>カラーテーマ：
+          <select size="1" name="sample" onchange="change_color(this.value)">
+            <option value="default" selected>デバイスに合わせる</option>
+            <option value="light">ライト</option>
+            <option value="dark">ダーク</option>
+          </select>
+        </label>
+      </p>
+      
+      <p>
+      
+        <h2>セーブ</h2>
+        <h3>現在のセーブデータ</h3>
+          <p>
+            キー①：
+            <span id="now_save_keyword1">0</span>
+            ／ キー②：<span id="now_save_keyword2">0</span>
+            
+          </p>
+          <p>       現在のゲーム進行を保存したいとき、上の2種類のキーを覚えていてください。下のフォームに入力し、送信ボタンを押すと、データがロードされます。※キーワードは半角英数で書いてください。
+          </p>
+        </p>
+        
+        <p>
+          <h3>データのロード</h3>
+          <p>
+          <label>キー①：
+            <input type="text" required id="save_keyword1"></input>
+          </label>
+          </p>
+          
+          
+          <p>
+          <label>キー②：
+            <input type="text" required id="save_keyword2"></input>
+          </label>
+          </p>
+          
+          
+          <p>
+          <label>確定：
+            <input type="submit" id="save_submit"/>
+          </label>
+          </p>
+        </p>
+        
+        <hr>
+        <p class="italic_p">竹馬浬 2025.4; Story-Number=25_4.39.Cx.M1.栃</p>
+      
+    </section>
+  
+  </main>
+</body>
+
+<!-- scriptは、body以下においておかないと、addEventListenerがうまくはたらかない -->
+  <script src="source/script.js"></script>
+</html>
+
+

@@ -3,131 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TaSU-K25 0.1</title>
+  <title>TaSU-K25 1.0</title>
+  
+  <!-- css -->
   <link rel="stylesheet" href="source/style.css">
+  
+  <!-- ファビコン -->
+  <link rel="icon" href="source/favicon.ico">
+  <link rel="apple-touch-icon" href="source/apple-touch-icon-180x180.png" sizes="180x180">
+  <link rel="icon" href="source/favicon.png">
 </head>
 
-<body>
-
-
-<header>
-  <div class="buttons">
-    <div id="button_page" onclick='change_article("page")'>
-      <img src="source/icon2_dark.png" id="icon_page" class="icon selected" alt="Page"/>
-    </div>
-    
-    <div id="button_page" onclick='change_article("item")'>
-      <img src="source/icon4_dark.png" id="icon_item" class="icon" alt="Item"/>
-    </div>
-    
-    <div id="button_setting" onclick='change_article("setting")'>
-      <img src="source/icon1_dark.png" id="icon_setting" class="icon" alt="Setting"/>
-    </div>
-  <div>
-</header>
+<body id="body">
 
   <main>
-    <section id="page">
-      <h1>はじめに</h1>
-      
-      <p>
-        これは、選択式のテキストアドベンチャーゲームです。
-      </p>
-      
-      <p>
-        画面上部の右側には、３つのアイコンがあり、左から、「ストーリー」、「アイテム」、「設定」を指しています。
-      </p>
+ 
+    <section>
+    <!-- 各ストーリー解説セクション -->
 
+      <h1>ストーリー「災いの日」</h1>
+      <p>
+        あらすじ： 天変地異に見舞われたロクボン島。酪農を営む 栃野 圭（とちの けい） は、隣町への道すがら、とある脅威に遭遇する。
       </p>
-        今はストーリーを見ています。ゲーム中でアイテムを入手した場合、「アイテム」内でその情報を見ることができます。
+      <p>
+      <button class="selection_button" id="btn_0_0">はじめる
+      <img class="selection_icon" src="source/icon3_dark.png" alt="select"></button>
       </p>
-      
-      </p>
-        下のボタンを押して、ゲームを開始してください。
-      </p>
-      <div class="selection_button" onclick ="mov(0)">
-        はじめる
-        <img class="selection_icon" src="source/icon3_dark.png"/>
-      </div>
       
     </section>
     
-  
-    <section id="item">
-      <h1>アイテム</h1>
-      <div id="item_div">
-        <p class='item_p'>特に何も持っていません</p>
-      </div>
-    </section>
-  
-    <section id="setting">
-      <h1>設定</h1>
-      
+    <section>
+    <!-- 説明セクション -->
+      <hr>
+      <h1>TaSU-K25へようこそ</h1>
       <p>
-        <h2>最初から始める</h2>
-        <label>最初から始める：
-          <button id="restart_button">OK</button>
-        </label>
+        TaSU-K25（つーけー25）は、選択式のテキストアドベンチャーゲームです。
       </p>
       
       <p>
-        <h2>カラーテーマ</h2>
-        <label>カラーテーマ：
-          <select size="1" name="sample" onchange="change_color(this.value)">
-            <option value="default" selected>デバイスに合わせる</option>
-            <option value="light">ライト</option>
-            <option value="dark">ダーク</option>
-          </select>
-        </label>
+        画面上部の「はじめる」ボタンを押して、ゲームを開始してください。
       </p>
       
+      <h2>ゲーム画面説明</h2>
       <p>
-      
-        <h2>セーブ</h2>
-        <h3>現在のセーブデータ</h3>
-          <p>
-            キー①：
-            <span id="now_save_keyword1">0</span>
-            ／ キー②：<span id="now_save_keyword2">0</span>
-            
-          </p>
-          <p>       現在のゲーム進行を保存したいとき、上の2種類のキーを覚えていてください。下のフォームに入力し、送信ボタンを押すと、データがロードされます。※キーワードは半角英数で書いてください。
-          </p>
-        </p>
-        
-        <p>
-          <h3>データのロード</h3>
-          <p>
-          <label>キー①：
-            <input type="text" required id="save_keyword1"></input>
-          </label>
-          </p>
-          
-          
-          <p>
-          <label>キー②：
-            <input type="text" required id="save_keyword2"></input>
-          </label>
-          </p>
-          
-          
-          <p>
-          <label>確定：
-            <input type="submit" id="save_submit"/>
-          </label>
-          </p>
-        </p>
-        
-        
-      </div>
-      
-    </section>
-  
-  </main>
-</body>
+        画面上部の右側には、３つのアイコンがあり、それぞれ「ストーリー」、「アイテム」、「設定」を指しています。
+      </p>
 
-  <script src="story/story.js"></script>
+      <p>
+        <table border="1">
+          <tr>
+            <td><img src="source/icon2_dark.png" id="icon_page" class="icon" alt="Page" /></td>
+            <td>「ストーリー」。ゲームのメインであり、デフォルトでこれが選択されています。状況説明や、選択肢が入っています。</td>
+          </tr>
+          
+          <tr>
+            <td><img src="source/icon4_dark.png" id="icon_item" class="icon" alt="Item" /></td>
+            <td>「アイテム」。ゲーム中でアイテムを入手した場合、ここで情報を見ることができます。</td>
+          </tr>
+          
+          <tr>
+            <td><img src="source/icon1_dark.png" id="icon_setting" class="icon" alt="Setting" /></td>
+            <td>「設定」。各種設定ができます。</td>
+          </tr>
+          
+        
+        </table>
+      </p>
+      
+    </section>
+
+  </main>
+  
+  <footer>
+  <!-- フッター -->
+    <hr>
+    <p>竹馬浬 
+    <address><a href="mailto:support@takeuma-kairi.sakura.ne.jp">support@takeuma-kairi.sakura.ne.jp</a>
+    </p>
+    <p>Other :<a href="https://takeuma-kairi.sakura.ne.jp/TanoContBTAP/index.html">TanoContBTAP</a></p>
+    
+  </footer>
+</body>
   <script src="source/script.js"></script>
+  
+
 </html>
 
 

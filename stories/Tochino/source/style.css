@@ -33,13 +33,27 @@ body {
     margin: 0 auto;
 }
 
-table{
-  border: var(--main-text) solid 2px;
-  border-collapse: collapse; 
+/* ヘッダーは上に固定 */
+header{
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:3.5em;
+  text-align: right;
+  background-color: var(--main-bg);
+  
+  display: flex;
+  justify-content: center;
+  z-index: 1; /* 一番前に表示 */
 }
+  
+.buttons{
+  display: flex;
+  justify-content: flex-end;
+  flex: 2;
 
-td{
-  padding:1rem;
+  max-width: 800px;
 }
 
 /* アイコン画像 */
@@ -49,6 +63,32 @@ td{
   width:1.6rem;
 }
 
+.tab_button{
+  padding: 0;
+  border: none;
+  outline: none;
+  font: inherit;
+  color: inherit;
+  background: none;
+  padding: 0.5em;
+  border: var(--main-bg) solid 2px; /* かこみ線が見えないようなカラーリング */
+  border-radius:5px;
+  height:3rem;
+  width:3rem;
+  margin:0.5rem;
+}
+
+.tab_button:hover{
+  background-color: var(--active-color);
+}
+
+.tab_button:focus{
+  background-color: var(--active-color);
+}
+/* 選択されたアイコンは、かこみの色を変える */
+.selected{
+  border: var(--main-text) solid 2px;
+}
 
 p{
   line-height: 1.5em;
@@ -58,6 +98,51 @@ section{
   width:100%;
   margin-top: 3rem;
   margin-bottom: 5rem;
+}
+
+.page_passage_animation{
+  animation: fadeIn 0.3s cubic-bezier(0.33,1,0.68,1) forwards;
+}
+
+@keyframes fadeIn{
+  0%{
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  100%{
+    opacity:1;
+    transform: translateY(0px);
+  }
+}
+
+.item_div{
+  width:100%;
+  text-align: center;
+}
+.item_p{
+  text-align: center;
+  margin:1rem;
+  margin-top:3rem;
+  /* font-weight: bold; */
+  font-size:120%;
+}
+
+.hidden_item{
+  display: none;
+}
+
+.open_item{
+  display: inline-block;
+}
+
+
+section{
+  display:none;
+}
+
+#page{
+  display: inline-block;
 }
 
 .selection_button{
@@ -80,7 +165,7 @@ section{
   height: 3.8rem;
   margin: 0.6rem;
   
-  animation: zoomIn 0.1s forwards; 
+  animation: zoomIn 0.07s forwards; 
 }
 
 @keyframes zoomIn{
@@ -134,7 +219,6 @@ h2{
 .italic_p{
   font-style: italic;
 }
-
 .hidden_page{
   display: none;
 }
@@ -142,6 +226,7 @@ h2{
 .open_page{
   display: inline-block;
 }
+
 
 a:link {
   color: #60b0ff;
