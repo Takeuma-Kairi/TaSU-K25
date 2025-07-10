@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSONtoTaSU v0.1</title>
+</head>
+
+
+<body>
+  <p>
+  <h1>JSON→TaSU-K25変換</h1>
+  MDtoJSONparserで作成したJSONファイルを読み込むと、ストーリーのHTML、JSファイルを作成します。
+  </p>
+  
+  <p>
+    <label>1．JSONァイルを読み込む<br>
+      <!-- JSONァイルを読み込む -->
+      <input type="file" id="JSONfileselect"/>
+    </label>
+  </p>
+  
+  
+  <p>
+    <label>2．コードを作成<br>
+      <button onclick="code_story()">ここを押してHTMLを転記</button>
+      <button onclick="code_item()">ここを押してJSを転記</button>
+    </label>
+  </p>
+  
+  <p>
+    <button onclick="code_copy()">クリップボードにコピー</button>
+  </p>
+  
+  <pre id="code_field"></pre>
+</body>
+
+<script src="JtoTscript.js"></script>
