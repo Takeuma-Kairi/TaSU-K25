@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSONtoBTAP v0.1</title>
+</head>
+
+
+<body>
+  <p>
+  <h1>JSON→BTAP変換🐽</h1>
+  MDtoJSONparserで作成したJSONファイルを読み込むと、BTAPストーリーのJSファイルを作成します。
+  </p>
+  
+  <p>
+    <label>1．JSONァイルを読み込む<br>
+      <!-- JSONァイルを読み込む -->
+      <input type="file" id="JSONfileselect"/>
+    </label>
+  </p>
+  
+  
+  <p>
+    <label>2．コードを作成<br>
+      <button onclick="code_btap()">ここを押してJSを転記</button>
+    </label>
+  </p>
+  
+  <p>
+    <button onclick="code_copy()">クリップボードにコピー</button>
+  </p>
+  
+  <pre id="code_field"></pre>
+</body>
+
+<script src="JtoBscript.js"></script>
