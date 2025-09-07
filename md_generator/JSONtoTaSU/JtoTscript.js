@@ -471,8 +471,13 @@ function code_story(){
   let item_innerHTMLSTR = "<p id='noitem' class='item_p open_item'>特に何も持っていません</p>\n\n";
   
   for(var i=0; i < itemArr.length; i++){
-    item_innerHTMLSTR += "<p id='item_" + i + "' class='item_p hidden_item'> ----[  " + itemArr[i]['name'] + "  ]----<br>\n" 
-        + itemArr[i]['explain'] + "\n</p>\n\n";
+    item_innerHTMLSTR += "<div id='item_" + i + "' class='item_p hidden_item'>\n"
+    + "<table class='table_item'>\n"
+    + "<tr><td rowspan='2' class='item_img_td'>\n"
+    + "<img src='source/" + itemArr[i]['img'] + "' alt='" + itemArr[i]['name'] + "' class='item_img'/></td>\n" 
+    + "<td class='item_name_td'>" + itemArr[i]['name'] + "</td></tr>\n"
+    + "<td>\n" + itemArr[i]['explain'] 
+    + "</td></tr>\n</table>\n</div>\n\n";
   }
   
   page_innerHTMLSTR+=item_innerHTMLSTR; 

@@ -54,8 +54,8 @@ function JSON_scripting(filetxt){
       insertmode = ITEM_MODE;
       
     //アイテムの追加
-    }else if(line.match(/[0-9]+\. (.+?)>>(.+)/)){
-      StoryDic["item"].push({name: RegExp.$1, explain: RegExp.$2, have:false});
+    }else if(line.match(/[0-9]+\. (.+?)>>(.+?)>>(.+)/)){
+      StoryDic["item"].push({name: RegExp.$1, explain: RegExp.$2, have:false, img: RegExp.$3});
       
     //マップの開始
     }else if(line.match(/# MAP/)){

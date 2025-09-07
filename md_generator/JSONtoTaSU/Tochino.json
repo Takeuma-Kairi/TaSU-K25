@@ -5,17 +5,20 @@
     {
       "name": "鍵",
       "explain": "牛舎の鍵。",
-      "have": false
+      "have": false,
+      "img": "key.png"
     },
     {
       "name": "円盾",
       "explain": "先祖が使っていたという、鹿の角がデザインされた古い盾。",
-      "have": false
+      "have": false,
+      "img": "shield.png"
     },
     {
       "name": "ピッチフォーク",
-      "explain": "長い柄と、その先端に広がった4本歯を持った農具",
-      "have": false
+      "explain": "長い柄と、その先端に広がった4本歯を持った農具。",
+      "have": false,
+      "img": "fork.png"
     }
   ],
   "map": [
