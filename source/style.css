@@ -43,6 +43,7 @@ td{
   padding:1rem;
 }
 
+
 /* ヘッダーは上に固定 */
 header{
   position: fixed;
@@ -144,8 +145,33 @@ section{
 
 .open_item{
   display: inline-block;
+  width:95%;
+  margin:2.5%;
 }
 
+
+/* ============================= */
+/* アイテムを表示する表 */
+.table_item{
+  width: 100%;
+  text-align: left;
+}
+
+/* アイテム名は太字、大きい文字で */
+.item_name_td{
+  font-weight: bold;
+  font-size: 150%;
+}
+
+/* アイテム画像、表の高さは固定 */
+.item_img{
+  height:6rem;
+}
+
+.item_img_td{
+  width:6rem;
+}
+/* ============================= */
 
 section{
   display:none;
