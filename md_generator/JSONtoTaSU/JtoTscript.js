@@ -381,6 +381,12 @@ function getitem(i){
   item_update();
 }
 
+//アイテムを失う
+function loseitem(i){
+  item_haveArr[i]=false;
+  item_update();
+}
+
 //一番初めから再開
 function restart(){
   //アイテムを失う
@@ -391,6 +397,23 @@ function restart(){
 
   mov(0);
 }
+
+//フラグが立っているか
+function iflag(i){
+  return(flagArr[i]);
+}
+
+//フラグを立てる
+function onflag(i){
+  flagArr[i]=true;
+}
+
+
+//フラグをおろす
+function offlag(i){
+  flagArr[i]=false;
+}
+
 `;
 
 //===============================================
