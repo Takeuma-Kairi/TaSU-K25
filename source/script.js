@@ -4,7 +4,9 @@ let isDarkMode = false; //デフォルトのテーマがダークテーマか否
 let color_theme = "light"; //現在のテーマはdarkかlightか。初期値はlight
 
 const EVENT_SCRIPT=[
-[function(){window.open("stories/Tochino/index.html")}]];
+[function(){window.open("stories/Tochino/index.html")}],
+[function(){window.open("stories/R01/index.html")}],
+];
 
 
 

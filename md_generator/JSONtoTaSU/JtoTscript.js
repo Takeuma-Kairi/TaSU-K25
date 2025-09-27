@@ -535,6 +535,16 @@ function code_item(){
   
   js_script += item_have;
   
+    
+  //~~~フラグは、最初すべてfalse~~~
+  let flag_Arr = "let flagArr=[";
+  for(var i=0; i < Number(Story["flag"]); i++){
+    flag_Arr += "false,";
+  }
+  flag_Arr += "];\n";
+  
+  js_script += flag_Arr;
+  
   
   //~~~GOTOタグ~~~
   let tagDicSTR = "const TAGARR={";

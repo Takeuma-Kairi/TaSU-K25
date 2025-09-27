@@ -10,9 +10,7 @@ let page_num = 0;
 const STORY_LENGTH=22;
 
 let item_haveArr=[false,];
-let flagArr=[false,false]
-
-
+let flagArr=[false,false,false,];
 const TAGARR={"hiroba": 6, 
 "minato1": 7, 
 "minato2": 8, 
@@ -32,7 +30,7 @@ const EVENT_SCRIPT=[
 [function(){nxp()}, ],
 [function(){nxp()}, ],
 [function(){nxp()}, ],
-[function(){if(iflag(0)){tob("minato2");}else{onflag(0);tob("minato1");}}, function(){if(iflag(1)){tob("shukai2");}else{tob("shukai1")}}, function(){if(iflag(2)){tob("soko2")}else{tob("soko1")}}, ],
+[function(){if(iflag(0)){tob("minato2");}else{onflag(0);tob("minato1");}}, function(){if(iflag(1)){tob("shukai2");}else{tob("shukai1")}}, function(){if(iflag(2)){tob("soko2")}else{onflag(2);tob("soko1")}}, ],
 [function(){if(iflag(0) && iflag(1)){tob("visitor")}else{tob("hiroba")}}, ],
 [function(){tob("hiroba")}, ],
 [function(){if(ifhave(0)){loseitem(0);onflag(1);tob("shukai1_2")}else{tob("shukai1_1")}}, ],
@@ -290,11 +288,12 @@ function getitem(i){
   item_haveArr[i]=true;
   item_update();
 }
+
+//アイテムを失う
 function loseitem(i){
   item_haveArr[i]=false;
   item_update();
 }
-
 
 //一番初めから再開
 function restart(){
@@ -307,15 +306,19 @@ function restart(){
   mov(0);
 }
 
+//フラグが立っているか
 function iflag(i){
   return(flagArr[i]);
 }
 
+//フラグを立てる
 function onflag(i){
   flagArr[i]=true;
 }
 
 
+//フラグをおろす
 function offlag(i){
   flagArr[i]=false;
 }
+
