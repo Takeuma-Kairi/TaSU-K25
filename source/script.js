@@ -7,6 +7,7 @@ const EVENT_SCRIPT=[
 [function(){window.open("stories/Tochino/index.html")}],
 [function(){window.open("stories/R01/index.html")}],
 [function(){window.open("stories/R02/index.html")}],
+[function(){window.open("stories/Tochino2/index.html")}],
 ];
 
 
