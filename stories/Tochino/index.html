@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TaSU-K25 1.0</title>
+  <title>TaSU-K25 3.1</title>
   <link rel="stylesheet" href="../../source/style.css">
   
   
@@ -219,7 +219,7 @@
 
 <div id='page_15' class='hidden_page'>
 <h1 class='page_passage_animation'>栃野の牧場</h1>
-	<p class='page_passage_animation'>柵で囲まれた広い牧草地と、牛舎がある。</p>
+	<p class='page_passage_animation'>策で囲まれた広い牧草地と、牛舎がある。</p>
 	<p class='page_passage_animation'>栃野の牧場だ。</p>
 	<p class='page_passage_animation'>いつもは乳牛を放牧させているが、危ないので今はみな牛舎の中だ。</p>
 	<p class='page_passage_animation'>たまに、こぶし大の火山弾が降ってくることもある。</p>
@@ -445,7 +445,7 @@
 	<p class='page_passage_animation'>いちかばちか、栃野はピッチフォークを構え、大きく前に踏み込んで、トカゲの胸に突き刺した。</p>
 	<p class='page_passage_animation'>トカゲは上を向いて叫び声をあげ、足元をふらつかせ、胸の輝きも、急に強くなったり弱くなったりと、不規則に点滅し始めた。</p>
 	<p class='page_passage_animation'>栃野はピッチフォークを引き抜いて、後ろに数歩下がった。</p>
-	<p class='page_passage_animation'>トカゲは、胸から赤黒い液体を吹き出しながらバッタリと前に倒れ伏した。</p>
+	<p class='page_passage_animation'>、トカゲは、胸から赤黒い液体を吹き出しながらバッタリと前に倒れ伏した。</p>
 	<div class="buttons_centering">
 		<button class="selection_button" id="btn_33_0">次へ
 		<img class="selection_icon" src="../../source/icon3_dark.png" /></button>
@@ -595,7 +595,7 @@
 <img src='source/fork.png' alt='ピッチフォーク' class='item_img'/></td>
 <td class='item_name_td'>ピッチフォーク</td></tr>
 <td>
-長い柄と、その先端に広がった4本歯を持った農具</td></tr>
+長い柄と、その先端に広がった4本歯を持った農具。</td></tr>
 </table>
 </div>
 
@@ -629,11 +629,11 @@
         <h3>現在のセーブデータ</h3>
           <p>
             キー①：
-            <span id="now_save_keyword1">0</span>
-            ／ キー②：<span id="now_save_keyword2">0</span>
-            
+            <span id="now_save_keyword1"></span>
+            ／ キー②：<span id="now_save_keyword2"></span>
+            ／ キー③：<span id="now_save_keyword3"></span>
           </p>
-          <p>       現在のゲーム進行を保存したいとき、上の2種類のキーを覚えていてください。下のフォームに入力し、送信ボタンを押すと、データがロードされます。※キーワードは半角英数で書いてください。
+          <p>       現在のゲーム進行を保存したいとき、上の3種類のキーを覚えていてください。下のフォームに入力し、送信ボタンを押すと、データがロードされます。※キーワードは半角英数で書いてください。
           </p>
         </p>
         
@@ -651,7 +651,12 @@
             <input type="text" required id="save_keyword2"></input>
           </label>
           </p>
-          
+                    
+          <p>
+          <label>キー③：
+            <input type="text" required id="save_keyword3"></input>
+          </label>
+          </p>
           
           <p>
           <label>確定：

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TaSU-K25 1.0</title>
+  <title>TaSU-K25 3.1</title>
   <link rel="stylesheet" href="../../source/style.css">
   
   
@@ -487,11 +487,11 @@
         <h3>現在のセーブデータ</h3>
           <p>
             キー①：
-            <span id="now_save_keyword1">0</span>
-            ／ キー②：<span id="now_save_keyword2">0</span>
-            
+            <span id="now_save_keyword1"></span>
+            ／ キー②：<span id="now_save_keyword2"></span>
+            ／ キー③：<span id="now_save_keyword3"></span>
           </p>
-          <p>       現在のゲーム進行を保存したいとき、上の2種類のキーを覚えていてください。下のフォームに入力し、送信ボタンを押すと、データがロードされます。※キーワードは半角英数で書いてください。
+          <p>       現在のゲーム進行を保存したいとき、上の3種類のキーを覚えていてください。下のフォームに入力し、送信ボタンを押すと、データがロードされます。※キーワードは半角英数で書いてください。
           </p>
         </p>
         
@@ -509,7 +509,12 @@
             <input type="text" required id="save_keyword2"></input>
           </label>
           </p>
-          
+                    
+          <p>
+          <label>キー③：
+            <input type="text" required id="save_keyword3"></input>
+          </label>
+          </p>
           
           <p>
           <label>確定：

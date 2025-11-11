@@ -1,4 +1,4 @@
-# TaSU-K25 (V3.0)
+# TaSU-K25 (V3.1)
 
 ## 概要
 選択式テキストアドベンチャーゲームです。  
@@ -25,7 +25,8 @@ TaSU-K25-main/
 │
 └── md_generator/   # マークダウン形式ファイルからTaSU-K25のストーリーを作成
        ├── MDtoJSON # マークダウン→いったんJSONファイルへ
-       └── JSONtoTaSU   # JSONファイル→TaSU-K25のストーリーファイル作成
+       ├── JSONtoTaSU   # JSONファイル→TaSU-K25のストーリーファイル作成
+       └── JSONtoBTAP   # JSONファイル→BTAPのスクリプトへ(外部用)
 ```
 
 ## マークダウン形式でのストーリー作成について
