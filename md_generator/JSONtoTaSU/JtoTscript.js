@@ -1,7 +1,7 @@
 //ユーザー側のキャッシュで、画像やファイルリンクが更新されないのを防ぐため、以下の文章を末尾につける
 //例： picture.svg?26125
 
-const CACHE_TAIL="?" + "26125";
+const CACHE_TAIL="?" + "261252";
 
 //#######################################################
 //HTMLとJSのコードを作るうえでの定型文。けっこう大量にあります
@@ -10,7 +10,7 @@ const HTML1 = `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TaSU-K25 4.0</title>
+  <title>TaSU-K25 4.2</title>
   <link rel="stylesheet" href="../../source/style.css` + CACHE_TAIL + `">
   
   
@@ -26,17 +26,17 @@ const HTML1 = `<!DOCTYPE html>
 <header>
   <div class="buttons">
     <button id="button_page" class="tab_button selected" onclick='change_article("page")'>
-      <img src="../../source/STORY.svg` + CACHE_TAIL + `" id="icon_page" class="icon" alt="Page" />
+      <img src="../../source/icon2_dark.png` + CACHE_TAIL + `" id="icon_page" class="icon" alt="Page" />
       STORY
     </button>
     
     <button id="button_item" class="tab_button" onclick='change_article("item")'>
-      <img src="../../source/ITEM.svg` + CACHE_TAIL + `" id="icon_item" class="icon" alt="Item" />
+      <img src="../../source/icon4_dark.png` + CACHE_TAIL + `" id="icon_item" class="icon" alt="Item" />
       ITEM
     </button>
     
     <button id="button_setting" class="tab_button" onclick='change_article("setting")'>
-      <img src="../../source/OPTION.svg` + CACHE_TAIL + `" id="icon_setting" class="icon" alt="Setting" />
+      <img src="../../source/icon1_dark.png` + CACHE_TAIL + `" id="icon_setting" class="icon" alt="Setting" />
       OPTION
     </button>
   </div>
@@ -72,7 +72,7 @@ const HTML3=`</div>
       <p>
         <h2>最初から始める</h2>
         <label>リセット：
-          <button id="restart_button">OK</button>
+          <button id="restart_button">Reset</button>
         </label>
       </p>
       
@@ -182,6 +182,16 @@ function change_color(color){
   }
   
   document.documentElement.setAttribute("theme", color_theme);
+  
+  // 画像の変更
+  document.getElementById("icon_setting").src = "../../source/icon1_" + color_theme + ".png` + CACHE_TAIL + `"
+  document.getElementById("icon_page").src = "../../source/icon2_" + color_theme + ".png` + CACHE_TAIL + `"
+  document.getElementById("icon_item").src = "../../source/icon4_" + color_theme + ".png` + CACHE_TAIL + `"
+  
+  let selection_iconArr = document.getElementsByClassName("selection_icon");
+  for(i=0; i<selection_iconArr.length; i++){
+    selection_iconArr[i].src = "../../source/icon3_" + color_theme + ".png` + CACHE_TAIL + `";
+  }
 }
 
 
@@ -205,6 +215,9 @@ document.getElementById("restart_button").addEventListener("click", () => {
   var res = confirm("最初から始めますか？進行は保存されません");
   if(res){
     restart();
+    change_article("page");
+    alert("リセットしました");
+    
   }
 });
 
@@ -554,7 +567,7 @@ function code_story(){
     page_innerHTMLSTR+='btn_' + j + '_' + i;
     page_innerHTMLSTR+='">';
     page_innerHTMLSTR+=selectionArr[i]["name"];
-    page_innerHTMLSTR+='\n\t\t<img class="selection_icon" src="../../source/SELECTION.svg' + CACHE_TAIL + '"/></button>\n';
+    page_innerHTMLSTR+='\n\t\t<img class="selection_icon" src="../../source/icon3_dark.png' + CACHE_TAIL + '"/></button>\n';
   }
     page_innerHTMLSTR+='\t</div>\n</div>\n\n';
   }
