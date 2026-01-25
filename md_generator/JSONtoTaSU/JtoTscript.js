@@ -7,7 +7,7 @@ const HTML1 = `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TaSU-K25 3.1</title>
+  <title>TaSU-K25 4.0</title>
   <link rel="stylesheet" href="../../source/style.css">
   
   
@@ -23,15 +23,18 @@ const HTML1 = `<!DOCTYPE html>
 <header>
   <div class="buttons">
     <button id="button_page" class="tab_button selected" onclick='change_article("page")'>
-      <img src="../../source/icon2_dark.png" id="icon_page" class="icon" alt="Page" />
+      <img src="../../source/STORY.svg" id="icon_page" class="icon" alt="Page" />
+      STORY
     </button>
     
     <button id="button_item" class="tab_button" onclick='change_article("item")'>
-      <img src="../../source/icon4_dark.png" id="icon_item" class="icon" alt="Item" />
+      <img src="../../source/ITEM.svg" id="icon_item" class="icon" alt="Item" />
+      ITEM
     </button>
     
     <button id="button_setting" class="tab_button" onclick='change_article("setting")'>
-      <img src="../../source/icon1_dark.png" id="icon_setting" class="icon" alt="Setting" />
+      <img src="../../source/OPTION.svg" id="icon_setting" class="icon" alt="Setting" />
+      OPTION
     </button>
   </div>
 </header>
@@ -57,22 +60,19 @@ const HTML3=`</div>
       <h1>設定</h1>
       
       <p>
+        <h2>一つ戻る</h2>
+        <label>戻る：
+          <button id="return_button">Return</button>
+        </label>
+      </p>
+      
+      <p>
         <h2>最初から始める</h2>
         <label>リセット：
           <button id="restart_button">OK</button>
         </label>
       </p>
       
-      <p>
-        <h2>カラーテーマ</h2>
-        <label>カラーテーマ：
-          <select size="1" name="sample" onchange="change_color(this.value)">
-            <option value="default" selected>デバイスに合わせる</option>
-            <option value="light">ライト</option>
-            <option value="dark">ダーク</option>
-          </select>
-        </label>
-      </p>
       
       <p>
       
@@ -161,6 +161,10 @@ const JS2 = `window.addEventListener('DOMContentLoaded', () => {
   document.getElementById("body").addEventListener('touchstart', function(){}, {passive: true});
 
   make_selection_event();
+  
+  
+  //進捗リセット
+  restart();
 });
 
 
@@ -175,17 +179,22 @@ function change_color(color){
   }
   
   document.documentElement.setAttribute("theme", color_theme);
-  
-  // 画像の変更
-  document.getElementById("icon_setting").src = "../../source/icon1_" + color_theme + ".png"
-  document.getElementById("icon_page").src = "../../source/icon2_" + color_theme + ".png"
-  document.getElementById("icon_item").src = "../../source/icon4_" + color_theme + ".png"
-  
-  let selection_iconArr = document.getElementsByClassName("selection_icon");
-  for(i=0; i<selection_iconArr.length; i++){
-    selection_iconArr[i].src = "../../source/icon3_" + color_theme + ".png";
-  }
 }
+
+
+//設定タブの「戻る」ボタン
+document.getElementById("return_button").addEventListener("click", () => {
+  if (progress_logArr.length <= 1){ //セーブ記録がない場合（初期値）
+    alert("戻せません");
+  }else{
+    
+    progress_logArr.shift();
+    
+    let temp_log = progress_logArr.shift();//セーブ記録の最初の要素が１つ前のセーブデータ
+    savedata_load(temp_log[0],temp_log[1],temp_log[2]);
+    change_article("page");
+  }
+});
 
 
 //設定タブの「最初から始める」ボタン
@@ -238,20 +247,26 @@ document.getElementById("save_submit").addEventListener("click", () => {
   keyword2Int=parseInt(keyword2);
   keyword3Int=parseInt(keyword3);
   
-  //空文字だと不適
-  if(isNaN(keyword1Int) || isNaN(keyword2Int)  || isNaN(keyword3Int)){
-    alert("セーブデータが不適です。")
-  }else{
-    alert("セーブデータを反映しました。");
-    mov(keyword1Int);
-    load_itemdata(keyword2Int.toString(2));
-    load_flagdata(keyword3Int.toString(2));
-    
-    change_article("page");
-  }
+  //補正したデータを送る
+  savedata_load(keyword1Int, keyword2Int, keyword3Int);
+  
 });
 
 
+// セーブデータをロードする。ページ番号、アイテムデータ数字、フラグデータ数字を受け取る
+function savedata_load(page1, item2, flag3){
+  //空文字だと不適
+  if(isNaN(page1) || isNaN(item2)  || isNaN(flag3)){
+    alert("セーブデータが不適です。")
+  }else{
+    mov(page1);
+    load_itemdata(item2.toString(2));
+    load_flagdata(flag3.toString(2));
+    
+    change_article("page");
+    alert("セーブデータを反映しました。");
+  }
+}
 
 /*アイテムデータについて
 アイテムのセーブデータは10進数で管理していますが、これは2進数がベースです。
@@ -305,7 +320,8 @@ function load_flagdata(binaryStr){
   }
 }
 
-// 現在のセーブデータを出力する
+
+// セーブデータを出力する
 function savedata_write(){
   // アイテムの二進数化
   var item_binaryStr = "";
@@ -335,11 +351,20 @@ function savedata_write(){
   if(flag_binaryStr ==""){
     flag_binaryStr ="0";
   }
-  document.getElementById("now_save_keyword1").innerText = page_num;
-  document.getElementById("now_save_keyword2").innerText = parseInt(item_binaryStr, 2);
-  document.getElementById("now_save_keyword3").innerText = parseInt(flag_binaryStr, 2);
+  
+  const save_dataArr = [page_num, parseInt(item_binaryStr, 2), parseInt(flag_binaryStr, 2)];
+  savedata_write_ui(save_dataArr);
+  
+  return(save_dataArr);
 }
 
+
+//現在のセーブデータをUIテキストボックスに転記
+function savedata_write_ui(save_dataArr){
+  document.getElementById("now_save_keyword1").innerText = save_dataArr[0];
+  document.getElementById("now_save_keyword2").innerText = save_dataArr[1];
+  document.getElementById("now_save_keyword3").innerText = save_dataArr[2];
+}
 
 
 // ページと設定のアーティクル切り替え
@@ -364,9 +389,13 @@ function change_article(name){
 function mov(i){
   //無効なのは、0未満の数字
   if(i < STORY_LENGTH && i>=0){
-  document.getElementById("page_" + page_num).className="hidden_page";
-  document.getElementById("page_" + i).className="hidden_page open_page";
-  page_num = i;
+    document.getElementById("page_" + page_num).className="hidden_page";
+    document.getElementById("page_" + i).className="hidden_page open_page";
+     
+    
+    page_num = i;
+    
+    progress_logArr.unshift(savedata_write());  //セーブデータを更新
   
   }else{
     alert("エラー：存在しないページに飛ぼうとしています！");
@@ -522,9 +551,7 @@ function code_story(){
     page_innerHTMLSTR+='btn_' + j + '_' + i;
     page_innerHTMLSTR+='">';
     page_innerHTMLSTR+=selectionArr[i]["name"];
-    page_innerHTMLSTR+='\n\t\t<img class="selection_icon" src="../../source/icon3_dark';
-    page_innerHTMLSTR+='.png" /></button>\n';
-    
+    page_innerHTMLSTR+='\n\t\t<img class="selection_icon" src="../../source/SELECTION.svg"/></button>\n';
   }
     page_innerHTMLSTR+='\t</div>\n</div>\n\n';
   }
@@ -585,10 +612,13 @@ function code_item(){
   for(var i=0; i < Number(Story["flag"]); i++){
     flag_Arr += "false,";
   }
-  flag_Arr += "];\n";
+  flag_Arr += "];\n\n";
   
   js_script += flag_Arr;
   
+  
+  //~~~「戻る」用のパンくずリスト配列~~~
+  js_script += "let progress_logArr = [];\n\n";
   
   //~~~GOTOタグ~~~
   let tagDicSTR = "const TAGARR={";

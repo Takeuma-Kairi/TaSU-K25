@@ -3,14 +3,14 @@
 
 /* ライトモード(通常)用の色を設定 */
 :root {
-  --main-text: #1c1c1c;
-  --main-bg: #ebebeb;
+  --main-text: #111111;
+  --main-bg: #f3f5f7;
   --active-color: #bcbcbc;
 }
 
 /* ダークモード用の色を設定 */
 :root[theme="dark"] {
-  --main-text: #ebebeb;
+  --main-text: #eaeaea;
   --main-bg: #1c1c1c;
   --active-color: #4c4c4c;
 }
@@ -21,7 +21,6 @@ body {
   color: var(--main-text);
   background-color: var(--main-bg);
 
-  /* 「2024年に最適なfont-familyの書き方」（ https://ics.media/entry/200317/ ）からコピペ */
   font-family: "Helvetica Neue",
     Arial,
     "Hiragino Kaku Gothic ProN",
@@ -70,8 +69,8 @@ header{
 /* アイコン画像 */
 .icon{
   margin: 0;
-  height: 1.6rem;
-  width:1.6rem;
+  height: 2rem;
+  width:2rem;
 }
 
 .tab_button{
@@ -84,9 +83,13 @@ header{
   padding: 0.5em;
   border: var(--main-bg) solid 2px; /* かこみ線が見えないようなカラーリング */
   border-radius:5px;
-  height:3rem;
+  height:3.2rem;
   width:3rem;
   margin:0.5rem;
+  
+  text-align: center;
+  font-size: 0.5rem;
+  font-weight: bold;
 }
 
 .tab_button:hover{

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="svg1" width="48" height="48" viewBox="0 0 48 48"><g id="g1"><path id="path1" d="M20.445 47.816C-8.848 40.943-5.768.02 24.042.02c30.286 0 32.646 43.87 2.569 47.748-2.261.292-5.036.313-6.166.048m7.735-30.56-6.613-6.654-2.379 2.23-2.38 2.229 4.345 4.415 4.344 4.416-4.319 4.39-4.32 4.39 2.289 2.282 2.288 2.282 6.678-6.662 6.68-6.662z" style="stroke-width:1.02632"/></g>
+<style>
+    path {
+      fill: #1c1c1c; 
+      stroke:#1c1c1c;
+    } /* ライトモードの色 */
+    
+    @media (prefers-color-scheme: dark) {
+      path {
+        fill: #ebebeb; 
+        stroke:#ebebeb;
+      } /* ダークモードの色 */
+    }
+</style>
+</svg>
