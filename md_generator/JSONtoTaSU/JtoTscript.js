@@ -1,4 +1,7 @@
+//ユーザー側のキャッシュで、画像やファイルリンクが更新されないのを防ぐため、以下の文章を末尾につける
+//例： picture.svg?26125
 
+const CACHE_TAIL="?" + "26125";
 
 //#######################################################
 //HTMLとJSのコードを作るうえでの定型文。けっこう大量にあります
@@ -8,13 +11,13 @@ const HTML1 = `<!DOCTYPE html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TaSU-K25 4.0</title>
-  <link rel="stylesheet" href="../../source/style.css">
+  <link rel="stylesheet" href="../../source/style.css` + CACHE_TAIL + `">
   
   
   <!-- ファビコン -->
-  <link rel="icon" href="../../source/favicon.ico">
-  <link rel="apple-touch-icon" href="../../source/apple-touch-icon-180x180.png" sizes="180x180">
-  <link rel="icon" href="../../source/favicon.png">
+  <link rel="icon" href="../../source/favicon.ico` + CACHE_TAIL + `">
+  <link rel="apple-touch-icon" href="../../source/apple-touch-icon-180x180.png` + CACHE_TAIL + `" sizes="180x180">
+  <link rel="icon" href="../../source/favicon.png` + CACHE_TAIL + `">
 </head>
 
 <body id="body">
@@ -23,17 +26,17 @@ const HTML1 = `<!DOCTYPE html>
 <header>
   <div class="buttons">
     <button id="button_page" class="tab_button selected" onclick='change_article("page")'>
-      <img src="../../source/STORY.svg" id="icon_page" class="icon" alt="Page" />
+      <img src="../../source/STORY.svg` + CACHE_TAIL + `" id="icon_page" class="icon" alt="Page" />
       STORY
     </button>
     
     <button id="button_item" class="tab_button" onclick='change_article("item")'>
-      <img src="../../source/ITEM.svg" id="icon_item" class="icon" alt="Item" />
+      <img src="../../source/ITEM.svg` + CACHE_TAIL + `" id="icon_item" class="icon" alt="Item" />
       ITEM
     </button>
     
     <button id="button_setting" class="tab_button" onclick='change_article("setting")'>
-      <img src="../../source/OPTION.svg" id="icon_setting" class="icon" alt="Setting" />
+      <img src="../../source/OPTION.svg` + CACHE_TAIL + `" id="icon_setting" class="icon" alt="Setting" />
       OPTION
     </button>
   </div>
@@ -128,7 +131,7 @@ const HTML4=`</p>
 </body>
 
 <!-- scriptは、body以下においておかないと、addEventListenerがうまくはたらかない -->
-  <script src="source/script.js"></script>
+  <script src="source/script.js` + CACHE_TAIL + `"></script>
 </html>`;
 
 //==========================================
@@ -551,7 +554,7 @@ function code_story(){
     page_innerHTMLSTR+='btn_' + j + '_' + i;
     page_innerHTMLSTR+='">';
     page_innerHTMLSTR+=selectionArr[i]["name"];
-    page_innerHTMLSTR+='\n\t\t<img class="selection_icon" src="../../source/SELECTION.svg"/></button>\n';
+    page_innerHTMLSTR+='\n\t\t<img class="selection_icon" src="../../source/SELECTION.svg' + CACHE_TAIL + '"/></button>\n';
   }
     page_innerHTMLSTR+='\t</div>\n</div>\n\n';
   }
