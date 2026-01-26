@@ -1,7 +1,7 @@
 //ユーザー側のキャッシュで、画像やファイルリンクが更新されないのを防ぐため、以下の文章を末尾につける
 //例： picture.svg?26125
 
-const CACHE_TAIL="?" + "261252";
+const CACHE_TAIL="?" + "26126";
 
 //#######################################################
 //HTMLとJSのコードを作るうえでの定型文。けっこう大量にあります
@@ -10,7 +10,7 @@ const HTML1 = `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TaSU-K25 4.2</title>
+  <title>TaSU-K25 4.2.1</title>
   <link rel="stylesheet" href="../../source/style.css` + CACHE_TAIL + `">
   
   

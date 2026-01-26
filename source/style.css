@@ -32,7 +32,7 @@ body {
     margin: 0 auto;
 }
 
-
+/* 表 */
 table{
   border: var(--main-text) solid 2px;
   border-collapse: collapse; 
@@ -57,13 +57,48 @@ header{
   justify-content: center;
   z-index: 1; /* 一番前に表示 */
 }
-  
+
+
+/* タブ変更ボタンについて */
+/* 画面上部のタブ変更ボタン類をまとめるdiv */
 .buttons{
   display: flex;
   justify-content: flex-end;
   flex: 2;
-
   max-width: 800px;
+}
+
+
+/* それぞれのタブ変更ボタン */
+.tab_button{
+  /* ブラウザ間のbuttonデザイン相違をなくすために、まず念のためリセットをかける*/
+  padding: 0;
+  border: none;
+  outline: none;
+  font: inherit;
+  color: inherit;
+  background: none;
+  
+  height:3.2rem;
+  width:3rem;
+  margin:0.5rem;
+  padding: 0.5em;
+
+  border: var(--main-bg) solid 2px; /* かこみ線が見えないようなカラーリング */
+  border-radius:5px;
+  
+  text-align: center;
+  font-size: 0.5rem;
+  font-weight: bold;
+}
+
+
+.tab_button:hover{
+  background-color: var(--active-color);
+}
+
+.tab_button:focus{
+  background-color: var(--active-color);
 }
 
 /* アイコン画像 */
@@ -73,47 +108,32 @@ header{
   width:2rem;
 }
 
-.tab_button{
-  padding: 0;
-  border: none;
-  outline: none;
-  font: inherit;
-  color: inherit;
-  background: none;
-  padding: 0.5em;
-  border: var(--main-bg) solid 2px; /* かこみ線が見えないようなカラーリング */
-  border-radius:5px;
-  height:3.2rem;
-  width:3rem;
-  margin:0.5rem;
-  
-  text-align: center;
-  font-size: 0.5rem;
-  font-weight: bold;
-}
-
-.tab_button:hover{
-  background-color: var(--active-color);
-}
-
-.tab_button:focus{
-  background-color: var(--active-color);
-}
 /* 選択されたアイコンは、かこみの色を変える */
 .selected{
   border: var(--main-text) solid 2px;
 }
 
-p{
-  line-height: 1.5em;
-}
 
 section{
   width:100%;
   margin-top: 3rem;
   margin-bottom: 5rem;
+  display:none; /* デフォルトはすべて非表示 */
 }
 
+/* ↑ただし、pageセクションはデフォルトで表示しておく */
+#page{
+  display: inline-block;
+}
+
+/*一番最初の目次のページの各セクションについては、すべて表示させる*/
+.index_section{
+  display: block;
+}
+
+
+
+/* 段落やh要素などはアニメーションでふわっと表示させるようにする */
 .page_passage_animation{
   animation: fadeIn 0.3s cubic-bezier(0.33,1,0.68,1) forwards;
 }
@@ -138,7 +158,6 @@ section{
   text-align: center;
   margin:1rem;
   margin-top:3rem;
-  /* font-weight: bold; */
   font-size:120%;
 }
 
@@ -174,22 +193,13 @@ section{
 .item_img_td{
   width:6rem;
 }
+
+
+
 /* ============================= */
-
-section{
-  display:none;
-}
-
-#page{
-  display: inline-block;
-}
-
-/*一番最初の目次のページの各セクション*/
-.index_section{
-  display: block;
-}
-
+/* 選択肢ボタンについて */
 .selection_button{
+  /* ブラウザ間のbuttonデザイン相違をなくすために、まず念のためリセットをかける*/
   padding: 0;
   border: none;
   outline: none;
@@ -197,17 +207,19 @@ section{
   color: inherit;
   background: none;
   
+  width: 18rem;
+  height: 3.8rem;
+  margin: 0.6rem;
+  
   display: inline-block;
   justify-content: center;
   align-items: center;
   position: relative;
+  
   border: var(--main-text) 2px solid;
   border-radius: 15px;
+  
   text-align: center;
-  width: 18rem;
-  /* padding: 0.8rem; */
-  height: 3.8rem;
-  margin: 0.6rem;
   
   animation: zoomIn 0.07s forwards; 
 }
@@ -231,21 +243,26 @@ section{
 .selection_button:focus{
   background-color: var(--active-color);
 }
-/*.selection_button:active{
-  background-color: var(--active-color);
-}*/
 
 
+/* 選択肢ボタンたちを中央ぞろえにする */
 .buttons_centering{
   width: 100%;
   text-align: center;
 }
 
+/* 選択肢ボタンたちの中のアイコン */
 .selection_icon{
   height:1.4rem;
   
   position: absolute;
   right:1rem;
+}
+
+
+/* 以下、ストーリーを記述するときの段落など */
+p{
+  line-height: 1.5em;
 }
 
 h1{
@@ -256,13 +273,10 @@ h2{
   font-size: 1.5em;
 }
 
-.makespace{
-  height: 5rem;
-}
-
 .italic_p{
   font-style: italic;
 }
+
 .hidden_page{
   display: none;
 }
@@ -278,5 +292,12 @@ a:link {
 
 a:visited {
   color: #b060ff;
+}
+
+
+/* makespaceは現在機能していないようだ…見直し必要 */
+/* ただの空白行を目指していたんだけど、うまく間があかない */
+.makespace{
+  height: 5rem;
 }
 
