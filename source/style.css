@@ -15,6 +15,12 @@
   --active-color: #4c4c4c;
 }
 
+.icon_svg{
+  fill: var(--main-text);
+  stroke: var(--main-text);
+  
+}
+
 body {
   padding: 2em;
   padding-top: 1em;
