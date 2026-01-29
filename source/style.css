@@ -85,7 +85,7 @@ header{
   color: inherit;
   background: none;
   
-  height:3.2rem;
+  height:3.3rem;
   width:3rem;
   margin:0.5rem;
   padding: 0.5em;
@@ -282,6 +282,12 @@ h2{
 .italic_p{
   font-style: italic;
 }
+
+
+.setting_p{
+  padding: 0.3rem;
+}
+
 
 .hidden_page{
   display: none;

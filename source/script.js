@@ -69,15 +69,6 @@ function change_color(color){
   
   document.documentElement.setAttribute("theme", color_theme);
   
-  // 画像の変更
-  document.getElementById("icon_setting").src = "source/icon1_" + color_theme + ".png"
-  document.getElementById("icon_page").src = "source/icon2_" + color_theme + ".png"
-  document.getElementById("icon_item").src = "source/icon4_" + color_theme + ".png"
-  
-  let selection_iconArr = document.getElementsByClassName("selection_icon");
-  for(i=0; i<selection_iconArr.length; i++){
-    selection_iconArr[i].src = "source/icon3_" + color_theme + ".png";
-  }  
 }
 
 
