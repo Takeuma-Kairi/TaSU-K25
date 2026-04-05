@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TaSU-K25 4.3</title>
+  <title>TaSU-K25 4.4</title>
   <link rel="stylesheet" href="../../source/style.css?26126">
   
   
@@ -28,7 +28,12 @@
       <svg class="icon"><use href="#item_icon_svg"></use></svg>
       ITEM
     </button>
-    
+     
+    <button id="button_minimap" class="tab_button" onclick='change_article("minimap")'>
+      <svg class="icon"><use href="#minimap_icon_svg"></use></svg>
+      MINIMAP
+    </button>
+		
     <button id="button_setting" class="tab_button" onclick='change_article("setting")'>
       <svg class="icon"><use href="#option_icon_svg"></use></svg>
       OPTION
@@ -38,7 +43,6 @@
 
   <main>
     <section id="page">
-    
 <div id='page_0' class='hidden_page open_page'>
 <h1 class='page_passage_animation'>～災いの日～</h1>
 	<p class='page_passage_animation'>夏期</p>
@@ -605,8 +609,13 @@
 
 </div>
     </section>
-  
-    <section id="setting">
+	<section id="minimap">
+		<h1>ミニマップ</h1>
+			<div style="width:100%;padding:auto;">
+			  <img id="minimap_base" src="source/map/map1.png" style="display:inline-block;position:absolute;width:300px;height:300px;z-index:1" alt="ミニマップがここに入ります"/>
+			  <img id="minimap_layer" src="source/map/1.png" style="display:inline-block;position:absolute;width:300px;height:300px;z-index:2" alt="ミニマップがここに入ります"/>
+			</div>
+	</section><section id="setting">
       <h1>設定</h1>
       
       <p class="setting_p">
@@ -716,9 +725,18 @@
 </symbol>
 </svg>
 
+<!--ミニマップ-->
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="48" height="48" viewbox="0 0 12.7 12.7" >
+<symbol viewBox="0 0 12.7 12.7" id="minimap_icon_svg">
+<g fill-rule="evenodd" stroke-miterlimit="8" style="stroke:none;stroke-opacity:1">
+<path class="icon_svg" d="M533.6 275.4a25.8 25.8 0 1 0 0 51.5 25.8 25.8 0 0 0 0-51.5m2.3-41A67.2 67.2 0 0 1 581.2 350a710 710 0 0 0-48.4 51.6 710 710 0 0 0-46.6-53.4A67.2 67.2 0 0 1 536 234.4" style="stroke:none;stroke-opacity:1" transform="translate(-28.5 -15)scale(.065)"/>
+<path class="icon_svg" d="m562.6 382 3 .6c14.7 3.8 24.4 10.2 24.4 17.4 0 11.6-24.8 21-55.5 21s-55.5-9.4-55.5-21c0-7.2 9.7-13.6 24.5-17.4l2.4-.5 9.2 8.7-4.8.6c-11.5 1.9-19 5-19 8.6 0 5.8 19.3 10.4 43.2 10.4s43.3-4.6 43.3-10.4c0-3.6-7.6-6.7-19.1-8.6l-6-.8z" style="stroke:none;stroke-opacity:1" transform="translate(-28.5 -15)scale(.065)"/></g>
+</symbol>
+</svg>
+
 
 </body>
 
 <!-- scriptは、body以下においておかないと、addEventListenerがうまくはたらかない -->
-  <script src="source/script.js?26126"></script>
+  <script src="source/script.js?260405"></script>
 </html>

@@ -16,7 +16,11 @@ fileInput.addEventListener('change', (e) => {
 
 
 function JSON_scripting(filetxt){
-  let StoryDic={id:"", flag: 0, item :[], map: []};
+  let StoryDic={id:"", flag: 0, item :[], minimap:[], map: []};
+  
+  //このストーリーにミニマップが用意されているかの判定
+  let if_minimap_prepared = false;
+  
   
   //改行で区切って配列にする
   const TEXTARR = filetxt.split(/\r?\n/);
@@ -57,6 +61,11 @@ function JSON_scripting(filetxt){
     }else if(line.match(/[0-9]+\. (.+?)>>(.+?)>>(.+)/)){
       StoryDic["item"].push({name: RegExp.$1, explain: RegExp.$2, have:false, img: RegExp.$3});
       
+	
+    //アイテム
+    }else if(line.match(/# MINIMAP_PREPARED/)){
+		if_minimap_prepared = true;
+		
     //マップの開始
     }else if(line.match(/# MAP/)){
       insertmode = MAP_MODE;
@@ -87,6 +96,16 @@ function JSON_scripting(filetxt){
       
       last_page["selection"].push({name: RegExp.$1, code:RegExp.$2});
 
+    //ミニマップ
+	//背景画像指定
+    }else if(line.match(/\* (.+)m(.+)/)){
+		StoryDic["minimap"].push(new Array(parseInt(RegExp.$2), parseInt(RegExp.$1)));
+		
+	//ミニマップ
+	//背景画像指定の省略(既定のものを自動で選択)
+	}else if(line.match(/\* (.+)/)) {
+		StoryDic["minimap"].push(new Array(1, parseInt(RegExp.$1)));
+		
     }else if(insertmode == ID_MODE){
       StoryDic["id"] += line;
     

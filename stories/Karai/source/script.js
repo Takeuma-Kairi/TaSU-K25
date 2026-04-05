@@ -1,6 +1,5 @@
 const SECTION_ARR = ["page", "item", "setting"];
 const BUTTON_ARR = ["button_page", "button_item", "button_setting"];
-
 //ライトかダークか、カラーモードを保存しておく
 let isDarkMode = false; //デフォルトのテーマがダークテーマか否か。初期値はfalse
 let color_theme = "light"; //現在のテーマはdarkかlightか。初期値はlight
@@ -28,6 +27,9 @@ const TAGARR={"kanban1": 5,
 "mae3": 32, 
 "hidari2": 33, 
 };
+
+const  PAGE_MINIMAP = [
+];
 
 const EVENT_SCRIPT=[
 [function(){nxp()}, ],
@@ -326,6 +328,21 @@ function mov(i){
     page_num = i;
     
     progress_logArr.unshift(savedata_write());  //セーブデータを更新
+	
+	//ミニマップ処理 ～～～
+	if(PAGE_MINIMAP.length != 0){
+		const TEMP_PAGE_MINIMAP = PAGE_MINIMAP[i]	
+		
+		//ベースとなる地図画像を表示
+		document.getElementById("minimap_base").src = "source/map/map" + TEMP_PAGE_MINIMAP[0] + ".png";
+		//レイヤーを表示
+		if(TEMP_PAGE_MINIMAP[1] != 0){
+			document.getElementById("minimap_layer").style.display="inline-block";
+			document.getElementById("minimap_layer").src = "source/map/" + TEMP_PAGE_MINIMAP[1] + ".png";
+		}else{	//レイヤー非表示設定
+			document.getElementById("minimap_layer").style.display="none";
+		}
+	}
   
   }else{
     alert("エラー：存在しないページに飛ぼうとしています！");

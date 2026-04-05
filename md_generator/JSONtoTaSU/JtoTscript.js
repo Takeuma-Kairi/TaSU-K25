@@ -1,7 +1,7 @@
 //ユーザー側のキャッシュで、画像やファイルリンクが更新されないのを防ぐため、以下の文章を末尾につける
 //例： script.js?26125
 
-const CACHE_TAIL="?" + "26126";
+const CACHE_TAIL="?" + "260405";
 
 //#######################################################
 //HTMLとJSのコードを作るうえでの定型文。けっこう大量にあります
@@ -35,7 +35,15 @@ const HTML1 = `<!DOCTYPE html>
       <svg class="icon"><use href="#item_icon_svg"></use></svg>
       ITEM
     </button>
-    
+    `
+const HTML1_minimap = ` 
+    <button id="button_minimap" class="tab_button" onclick='change_article("minimap")'>
+      <svg class="icon"><use href="#minimap_icon_svg"></use></svg>
+      MINIMAP
+    </button>
+	`;
+	
+const HTML1_2 = `	
     <button id="button_setting" class="tab_button" onclick='change_article("setting")'>
       <svg class="icon"><use href="#option_icon_svg"></use></svg>
       OPTION
@@ -45,7 +53,6 @@ const HTML1 = `<!DOCTYPE html>
 
   <main>
     <section id="page">
-    
 `;
 
 //==========================================
@@ -58,9 +65,19 @@ const HTML2=`</section>
 
 //==========================================
 const HTML3=`</div>
-    </section>
-  
-    <section id="setting">
+    </section>`
+	
+const HTML3_minimap = `
+	<section id="minimap">
+		<h1>ミニマップ</h1>
+			<div style="width:100%;padding:auto;">
+			  <img id="minimap_base" src="source/map/map1.png" style="display:inline-block;position:absolute;width:300px;height:300px;z-index:1" alt="ミニマップがここに入ります"/>
+			  <img id="minimap_layer" src="source/map/1.png" style="display:inline-block;position:absolute;width:300px;height:300px;z-index:2" alt="ミニマップがここに入ります"/>
+			</div>
+	</section>`;
+	
+const HTML3_2 = 
+	`<section id="setting">
       <h1>設定</h1>
       
       <p class="setting_p">
@@ -173,6 +190,15 @@ const HTML4=`</p>
 </symbol>
 </svg>
 
+<!--ミニマップ-->
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="48" height="48" viewbox="0 0 12.7 12.7" >
+<symbol viewBox="0 0 12.7 12.7" id="minimap_icon_svg">
+<g fill-rule="evenodd" stroke-miterlimit="8" style="stroke:none;stroke-opacity:1">
+<path class="icon_svg" d="M533.6 275.4a25.8 25.8 0 1 0 0 51.5 25.8 25.8 0 0 0 0-51.5m2.3-41A67.2 67.2 0 0 1 581.2 350a710 710 0 0 0-48.4 51.6 710 710 0 0 0-46.6-53.4A67.2 67.2 0 0 1 536 234.4" style="stroke:none;stroke-opacity:1" transform="translate(-28.5 -15)scale(.065)"/>
+<path class="icon_svg" d="m562.6 382 3 .6c14.7 3.8 24.4 10.2 24.4 17.4 0 11.6-24.8 21-55.5 21s-55.5-9.4-55.5-21c0-7.2 9.7-13.6 24.5-17.4l2.4-.5 9.2 8.7-4.8.6c-11.5 1.9-19 5-19 8.6 0 5.8 19.3 10.4 43.2 10.4s43.3-4.6 43.3-10.4c0-3.6-7.6-6.7-19.1-8.6l-6-.8z" style="stroke:none;stroke-opacity:1" transform="translate(-28.5 -15)scale(.065)"/></g>
+</symbol>
+</svg>
+
 
 </body>
 
@@ -182,9 +208,13 @@ const HTML4=`</p>
 
 //==========================================
 
-const JS1 = `const SECTION_ARR = ["page", "item", "setting"];
-const BUTTON_ARR = ["button_page", "button_item", "button_setting"];
+const JS1_WITH_MINIMAP = `const SECTION_ARR = ["page", "item", "minimap", "setting"];
+const BUTTON_ARR = ["button_page", "button_item", "button_minimap", "button_setting"];`;
 
+const JS1_WITHOUT_MINIMAP = `const SECTION_ARR = ["page", "item", "setting"];
+const BUTTON_ARR = ["button_page", "button_item", "button_setting"];`;
+
+const JS1_2 = `
 //ライトかダークか、カラーモードを保存しておく
 let isDarkMode = false; //デフォルトのテーマがダークテーマか否か。初期値はfalse
 let color_theme = "light"; //現在のテーマはdarkかlightか。初期値はlight
@@ -448,6 +478,21 @@ function mov(i){
     page_num = i;
     
     progress_logArr.unshift(savedata_write());  //セーブデータを更新
+	
+	//ミニマップ処理 ～～～
+	if(PAGE_MINIMAP.length != 0){
+		const TEMP_PAGE_MINIMAP = PAGE_MINIMAP[i]	
+		
+		//ベースとなる地図画像を表示
+		document.getElementById("minimap_base").src = "source/map/map" + TEMP_PAGE_MINIMAP[0] + ".png";
+		//レイヤーを表示
+		if(TEMP_PAGE_MINIMAP[1] != 0){
+			document.getElementById("minimap_layer").style.display="inline-block";
+			document.getElementById("minimap_layer").src = "source/map/" + TEMP_PAGE_MINIMAP[1] + ".png";
+		}else{	//レイヤー非表示設定
+			document.getElementById("minimap_layer").style.display="none";
+		}
+	}
   
   }else{
     alert("エラー：存在しないページに飛ぼうとしています！");
@@ -573,6 +618,13 @@ function code_story(){
   // 内容を書き連ねていく
   let page_innerHTMLSTR = HTML1;
   
+  //ミニマップがあるなら、ミニマップボタンを表示させる
+  if(Story["minimap"].length != 0){
+	  page_innerHTMLSTR += HTML1_minimap;
+  }
+  
+  page_innerHTMLSTR += HTML1_2;
+  
   //MAP内の各ページを文章化
   for(var j=0; j<Story["map"].length; j++){
     now_page = Story["map"][j];
@@ -630,6 +682,10 @@ function code_story(){
 
 
   page_innerHTMLSTR+=HTML3;
+  if(Story["minimap"].length != 0){page_innerHTMLSTR+=HTML3_minimap;
+  }
+  
+  page_innerHTMLSTR+=HTML3_2;
   page_innerHTMLSTR+=Story["id"];
   page_innerHTMLSTR+=HTML4;
   CODE_FIELD.innerText=page_innerHTMLSTR;
@@ -642,8 +698,8 @@ function code_item(){
   CODE_FIELD.innerHTML="";
   
   // 内容を書き連ねていく
-  let js_script = JS1;
-  
+  let js_script = (Story["minimap"].length == 0) ? JS1_WITHOUT_MINIMAP : JS1_WITH_MINIMAP;
+  js_script += JS1_2;
   
   //~~~ストーリーの長さ~~~
   js_script += "const STORY_LENGTH=" + Story["map"].length + ";\n\n";
@@ -687,6 +743,19 @@ function code_item(){
   
   js_script += tagDicSTR;
   
+  
+  
+  //~~~ミニマップデータ集~~~
+  let minimapSTR = "const  PAGE_MINIMAP = [\n";
+  for(var i=0; i<Story["minimap"].length; i++){
+	  var temp_minimap = Story["minimap"][i];
+	  minimapSTR += "[" + temp_minimap[0] + 
+					", " + temp_minimap[1] + 
+					"],\n";
+  }
+  minimapSTR += "];\n\n";
+  
+  js_script += minimapSTR;
   
   //~~~選択肢が押されたときの動作~~~
   let event_script = "const EVENT_SCRIPT=[\n";
