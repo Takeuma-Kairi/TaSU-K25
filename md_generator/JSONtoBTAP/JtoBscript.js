@@ -41,9 +41,23 @@ function code_btap(){
   
   //アイテム終了。
   //</item>
+  page_innerHTMLSTR += "</item>\n"
+  
+  
+  //ミニマップあり
+  if(Story["minimap"].length != 0){
+	let minimap_folder_name = prompt("ミニマップを配置しているフォルダ名を入力。例：ABC_Assist");
+	//キャンセルが押されたら、かわりに空白文字をいれておくこととする
+	if(!minimap_folder_name){
+		minimap_folder_name="";
+	}
+	page_innerHTMLSTR += "<mapimg:" + minimap_folder_name + ">\n"
+  }
+	
+	
   //<BFmap:ページ数>
-  page_innerHTMLSTR += "</item>\n\n<BFmap:" + 
-  Story["map"].length + ">\n";
+  page_innerHTMLSTR += "\n<BFmap:" + Story["map"].length + ">\n";
+  
   
   //MAP内の各ページを文章化
   for(var j=0; j<Story["map"].length; j++){
@@ -90,7 +104,30 @@ function code_btap(){
         + temp_code + "\n";
     }
     
-    
+	//ミニマップあり
+	if(Story["minimap"].length != 0){
+		temp_minimap = Story["minimap"][j];
+		
+		temp_minimap_script= ""; 
+		
+		//現在地を表示しない([1]が0)ときは、そのまま何も記述しない。
+		if(temp_minimap[1] != 0){
+			
+			//基本は "m:現在地番号"
+			temp_minimap_script = "m:" + temp_minimap[1];
+		
+		
+			//マップ番号がデフォルト([0]が1)でない場合
+			if(temp_minimap[0] != 1){
+				//m:現在地番号mマップ番号
+				temp_minimap_script += "m" + temp_minimap[0];
+			}
+		}
+		
+		page_innerHTMLSTR +=  temp_minimap_script + "\n";
+    }
+	
+	
     page_innerHTMLSTR += "bf]\n\n" 
     //ページ終わり
   }
